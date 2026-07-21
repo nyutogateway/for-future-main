@@ -1683,3 +1683,33 @@ img {
 }
 
 /* §33 は撤回（flex:1 が吸収するため fit に無効、かつロゴが小さくなるため） */
+
+/* =========================================================
+   34. SP：スライダーのロゴをさらに大きく＋左右の隙間を詰める
+   ========================================================= */
+@media screen and (max-width: 600px) {
+  .cover__marquee-item {
+    width: clamp(90px, 25vw, 124px);
+    height: clamp(86px, 23vw, 104px);
+    margin-right: clamp(2px, 0.8vw, 8px);
+  }
+  .cover__marquee-track img {
+    max-width: 92%;
+    max-height: 86%;
+  }
+}
+
+/* =========================================================
+   35. SP：ロゴをさらに大きく・左右の余白をほぼ無くす（強）
+   ========================================================= */
+@media screen and (max-width: 600px) {
+  .cover__marquee-item {
+    width: clamp(92px, 26vw, 124px);
+    height: clamp(100px, 27vw, 120px);
+    margin-right: clamp(0px, 0.4vw, 4px);
+  }
+  .cover__marquee-track img {
+    max-width: 95%;
+    max-height: 92%;
+  }
+}
