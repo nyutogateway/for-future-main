@@ -1453,3 +1453,69 @@ img {
     transform: translate(-50%, -50%) rotateY(-90deg);
   }
 }
+
+/* =========================================================
+   25. モーションを「ほわっと」やわらかく（全体）
+   カクカク感を抑えるため、動きを小さく・ゆっくり・柔らかいイージングに。
+   GPUに優しい opacity / transform のみを使う。
+   ========================================================= */
+:root {
+  /* やわらかい減速（ほわっと） */
+  --ease-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* --- スクロール登場：移動量を小さく＆ゆっくりフェード --- */
+.will-reveal {
+  transform: translateY(16px);
+  transition:
+    opacity 1.15s var(--ease-soft),
+    transform 1.15s var(--ease-soft);
+}
+.will-reveal.reveal-scale {
+  transform: translateY(12px) scale(0.99);
+}
+.will-reveal.revealed,
+.will-reveal.reveal-scale.revealed {
+  transform: none;
+}
+
+/* --- カード：登場も影・浮きもやわらかく --- */
+.article-wrap__body__card {
+  transition:
+    opacity 1.1s var(--ease-soft),
+    transform 0.7s var(--ease-soft),
+    box-shadow 0.6s var(--ease-soft);
+}
+.article-wrap__body__card:hover {
+  transform: translateY(-6px);
+}
+
+/* --- 見出し罫線の伸び・進捗バーもゆったり --- */
+.article-wrap__head .section-title::after,
+.about-wrap__body__head h4::after {
+  transition: transform 1.15s var(--ease-soft) 0.1s;
+}
+
+/* --- SP：中央フリップは3D回転をやめて「ほわっと」クロスフェード --- */
+@media screen and (max-width: 600px) {
+  .chapter .article-wrap__body__card .card-img-front {
+    opacity: 0;
+    transform: scale(1.05);
+    transition:
+      opacity 1s var(--ease-soft),
+      transform 1.25s var(--ease-soft);
+  }
+  .chapter .article-wrap__body__card.is-centered .card-img-front {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .chapter .article-wrap__body__card .card-img-back {
+    transition:
+      opacity 0.9s var(--ease-soft),
+      transform 0.9s var(--ease-soft);
+  }
+  .chapter .article-wrap__body__card.is-centered .card-img-back {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.92);
+  }
+}
