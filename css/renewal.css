@@ -1794,3 +1794,33 @@ img {
   height: 1px;
   background: var(--brand-grad);
 }
+
+/* =========================================================
+   40. 25 STORIES 見出しを「超特大・左寄せ（グリッド破り）」に
+   ========================================================= */
+.article-wrap__head {
+  max-width: 1180px;
+  margin: 0 auto clamp(40px, 6vw, 84px);
+  padding: clamp(20px, 4vw, 52px) clamp(20px, 5vw, 56px) 0;
+  text-align: left;
+}
+.article-wrap__head .section-kicker {
+  display: inline-block;
+  margin-bottom: clamp(10px, 1.6vw, 18px);
+}
+.article-wrap__head .section-title {
+  font-size: clamp(3.4rem, 14vw, 13rem);
+  line-height: 0.86;
+  letter-spacing: -0.015em;
+  text-align: left;
+  /* 単語の途中で折れないように（body の break-all を打ち消す）→
+     「25」「STORIES」がスペースで綺麗に2行に積まれる */
+  word-break: keep-all;
+  overflow-wrap: normal;
+  white-space: normal;
+}
+.article-wrap__head .section-title::after {
+  margin: clamp(20px, 2.6vw, 34px) 0 0;
+  width: clamp(180px, 34vw, 480px);
+  height: 6px;
+}
