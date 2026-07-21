@@ -1766,22 +1766,15 @@ img {
 
 
 /* =========================================================
-   39. 25 STORIES 見出し：実際の九州（長崎・佐賀）の地図シルエット
-   マップ＋テキストの2カラム。モバイルは縦積み・中央寄せ。
+   39. 25 STORIES 見出し：長崎・佐賀を独立シルエットで横並び
    ========================================================= */
 .article-wrap__head--map {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(22px, 4.5vw, 72px);
+  gap: clamp(28px, 6vw, 88px);
   text-align: left;
   flex-wrap: wrap;
-}
-.section-mapimg {
-  flex: none;
-  width: clamp(210px, 24vw, 360px);
-  height: auto;
-  filter: drop-shadow(0 14px 30px rgba(222, 95, 92, 0.16));
 }
 .section-headtext .section-kicker {
   display: inline-block;
@@ -1793,33 +1786,46 @@ img {
   margin-left: 0;
   margin-right: auto;
 }
-.section-place {
+/* 2県を横並び（独立シルエット） */
+.section-maps {
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(22px, 3.4vw, 52px);
+}
+.section-mapitem {
+  margin: 0;
+  text-align: center;
+}
+.section-mapitem img {
+  height: clamp(120px, 15vw, 200px);
+  width: auto;
+  display: block;
+  filter: drop-shadow(0 12px 26px rgba(222, 95, 92, 0.18));
+}
+.section-mapitem figcaption {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  margin-top: clamp(16px, 2.2vw, 24px);
+  gap: 8px;
+  margin-top: clamp(10px, 1.4vw, 16px);
   font-family: "Noto Serif JP", serif;
   font-weight: 600;
-  font-size: clamp(0.95rem, 0.85rem + 0.4vw, 1.2rem);
+  font-size: clamp(0.92rem, 0.82rem + 0.4vw, 1.15rem);
   letter-spacing: 0.16em;
   color: var(--ink);
 }
 .section-place__dot {
-  width: 9px;
-  height: 9px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: var(--brand-grad);
   box-shadow: 0 0 0 4px rgba(222, 95, 92, 0.14);
 }
-/* モバイルは縦積み・中央寄せ */
+/* モバイルは縦積み・中央寄せ（マップは横並びのまま） */
 @media screen and (max-width: 640px) {
   .article-wrap__head--map {
     flex-direction: column;
     text-align: center;
-    gap: clamp(14px, 3vw, 24px);
-  }
-  .section-mapimg {
-    width: clamp(210px, 58vw, 320px);
+    gap: clamp(18px, 4vw, 28px);
   }
   .section-headtext .section-title {
     text-align: center;
@@ -1827,5 +1833,8 @@ img {
   .section-headtext .section-title::after {
     margin-left: auto;
     margin-right: auto;
+  }
+  .section-mapitem img {
+    height: clamp(112px, 30vw, 168px);
   }
 }
