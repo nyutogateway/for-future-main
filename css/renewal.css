@@ -1559,3 +1559,109 @@ img {
 .cover__main {
   flex: 1;
 }
+
+/* =========================================================
+   28. カバーを1画面（100svh）に収める：縦フットプリントを圧縮
+   上下スライダー＋ヒーローが可視領域に収まるよう、余白を vh 連動に。
+   ========================================================= */
+.cover {
+  min-height: 100svh; /* アドレスバーを除いた可視領域基準 */
+}
+.cover__slider--top {
+  padding-top: clamp(6px, 1.5vh, 16px);
+}
+.cover__main {
+  padding: clamp(8px, 1.6vh, 24px) 0;
+}
+.cover__logo {
+  width: clamp(240px, 42vw, 560px);
+}
+.cover__rule {
+  margin: clamp(12px, 2.2vh, 26px) 0 clamp(10px, 1.8vh, 20px);
+}
+.cover__lines {
+  margin-top: clamp(12px, 2.2vh, 28px);
+}
+.cover__companies {
+  padding: clamp(10px, 1.8vh, 22px) 0;
+  gap: clamp(8px, 1.4vh, 16px);
+}
+.cover__marquee-track img {
+  height: clamp(40px, 5vw, 62px);
+}
+
+/* =========================================================
+   29. カバー縦圧縮の強化（短い画面でも下段スライダーまで収める）
+   ========================================================= */
+.cover {
+  padding-top: clamp(12px, 2vh, 30px);
+  padding-bottom: clamp(8px, 1.5vh, 24px);
+}
+.cover__slider--top {
+  padding-top: clamp(4px, 1vh, 12px);
+}
+.cover__main {
+  padding: clamp(2px, 0.8vh, 12px) 0;
+}
+.cover__logo {
+  width: clamp(210px, 38vw, 520px);
+}
+.cover__rule {
+  margin: clamp(8px, 1.4vh, 18px) 0 clamp(6px, 1vh, 12px);
+}
+.cover__lines {
+  margin-top: clamp(8px, 1.4vh, 16px);
+  gap: clamp(6px, 1vh, 11px);
+}
+.cover__companies {
+  padding: clamp(6px, 1.2vh, 16px) 0;
+  gap: clamp(4px, 0.9vh, 12px);
+}
+.cover__marquee-track img {
+  height: clamp(38px, 4.6vw, 56px);
+}
+
+/* =========================================================
+   30. カバー高さは dvh（可視域に正確一致）＋ PCは大きくSPは小さく
+   ========================================================= */
+.cover {
+  min-height: 100svh;
+  min-height: 100dvh; /* 対応ブラウザでは可視域にぴったり */
+}
+.cover__logo {
+  width: clamp(200px, 40vw, 620px);
+}
+.cover__marquee-track img {
+  height: clamp(38px, 5.5vw, 80px);
+}
+
+/* =========================================================
+   31. カバー：固定余白＋flexで中央を伸縮（画面高に依存せず必ず収める）
+   ========================================================= */
+.cover {
+  display: flex;
+  flex-direction: column;
+  padding-top: 18px;
+  padding-bottom: 14px;
+}
+.cover__slider--top {
+  padding-top: 10px;
+}
+.cover__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 0;
+}
+.cover__rule {
+  margin: 16px 0 12px;
+}
+.cover__lines {
+  margin-top: 14px;
+  gap: 9px;
+}
+.cover__companies {
+  padding: 12px 0;
+  gap: 9px;
+}

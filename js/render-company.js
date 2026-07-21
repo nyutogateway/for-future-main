@@ -89,7 +89,6 @@
       : "";
     sections +=
       '<section class="mag-section">' +
-        '<span class="mag-section__num">' + pad(s + 1) + "</span>" +
         '<h2 class="mag-section__head">' + esc(sec.heading) + "</h2>" +
         '<div class="mag-section__body">' + paras + "</div>" +
         figure +
