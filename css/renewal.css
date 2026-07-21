@@ -1766,51 +1766,66 @@ img {
 
 
 /* =========================================================
-   39. 25 STORIES 見出し：地図（長崎・佐賀）モチーフ
-   長崎 ―― 佐賀 の2地点をピン＋点線でつなぎ、薄いマップグリッドを敷く。
+   39. 25 STORIES 見出し：実際の九州（長崎・佐賀）の地図シルエット
+   マップ＋テキストの2カラム。モバイルは縦積み・中央寄せ。
    ========================================================= */
 .article-wrap__head--map {
-  position: relative;
-  z-index: 0;
-}
-/* 薄いドットのマップグリッド（中心からフェード） */
-.article-wrap__head--map::before {
-  content: "";
-  position: absolute;
-  inset: -30px 0 -10px;
-  z-index: -1;
-  background-image: radial-gradient(rgba(26, 26, 26, 0.055) 1px, transparent 1.4px);
-  background-size: 22px 22px;
-  -webkit-mask-image: radial-gradient(62% 82% at 50% 42%, #000, transparent 78%);
-  mask-image: radial-gradient(62% 82% at 50% 42%, #000, transparent 78%);
-  pointer-events: none;
-}
-/* 長崎 ―― 佐賀 */
-.section-map {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(10px, 1.6vw, 16px);
-  margin-bottom: clamp(20px, 3vw, 34px);
-  font-family: "Noto Serif JP", serif;
-  font-weight: 600;
-  font-size: clamp(0.92rem, 0.82rem + 0.4vw, 1.15rem);
-  letter-spacing: 0.14em;
-  color: var(--ink);
+  gap: clamp(22px, 4.5vw, 72px);
+  text-align: left;
+  flex-wrap: wrap;
 }
-.section-map__pin {
+.section-mapimg {
+  flex: none;
+  width: clamp(128px, 15vw, 210px);
+  height: auto;
+  filter: drop-shadow(0 14px 30px rgba(222, 95, 92, 0.16));
+}
+.section-headtext .section-kicker {
+  display: inline-block;
+}
+.section-headtext .section-title {
+  text-align: left;
+}
+.section-headtext .section-title::after {
+  margin-left: 0;
+  margin-right: auto;
+}
+.section-place {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  margin-top: clamp(16px, 2.2vw, 24px);
+  font-family: "Noto Serif JP", serif;
+  font-weight: 600;
+  font-size: clamp(0.95rem, 0.85rem + 0.4vw, 1.2rem);
+  letter-spacing: 0.16em;
+  color: var(--ink);
 }
-.section-map__dot {
+.section-place__dot {
   width: 9px;
   height: 9px;
   border-radius: 50%;
   background: var(--brand-grad);
   box-shadow: 0 0 0 4px rgba(222, 95, 92, 0.14);
 }
-.section-map__line {
-  width: clamp(80px, 20vw, 210px);
-  height: 30px;
+/* モバイルは縦積み・中央寄せ */
+@media screen and (max-width: 640px) {
+  .article-wrap__head--map {
+    flex-direction: column;
+    text-align: center;
+    gap: clamp(14px, 3vw, 24px);
+  }
+  .section-mapimg {
+    width: clamp(150px, 42vw, 210px);
+  }
+  .section-headtext .section-title {
+    text-align: center;
+  }
+  .section-headtext .section-title::after {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
