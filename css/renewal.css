@@ -1416,3 +1416,40 @@ img {
     display: none !important;
   }
 }
+
+/* =========================================================
+   24. SP：カードが画面に入ったら「ロゴ→人の顔（写真）」へ3Dフリップ
+   タッチ端末はホバーが無いため、reveal.js の .revealed をトリガに。
+   （PCのホバー挙動には影響しない＝SP幅のみ）
+   ========================================================= */
+@media screen and (max-width: 600px) {
+  .chapter .article-wrap__body__card__img {
+    perspective: 900px;
+  }
+  /* 表：人の顔。最初は伏せ（rotateY 90deg）、登場後にめくれて出る */
+  .chapter .article-wrap__body__card .card-img-front {
+    opacity: 0;
+    transform: rotateY(90deg);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition:
+      opacity 0.45s var(--ease-out) 0.25s,
+      transform 0.7s var(--ease-out) 0.25s;
+  }
+  .chapter .article-wrap__body__card.revealed .card-img-front {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+  /* 裏：ロゴ。登場後にめくれて消える */
+  .chapter .article-wrap__body__card .card-img-back {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition:
+      opacity 0.4s var(--ease-out) 0.25s,
+      transform 0.6s var(--ease-out) 0.25s;
+  }
+  .chapter .article-wrap__body__card.revealed .card-img-back {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotateY(-90deg);
+  }
+}
