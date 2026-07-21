@@ -1838,3 +1838,19 @@ img {
     height: clamp(112px, 30vw, 168px);
   }
 }
+
+/* §39 追補：長崎を大きく・佐賀を小さく（実面積に近いバランス／独立2県） */
+.section-maps .section-mapitem:nth-child(1) img {
+  height: clamp(138px, 17vw, 224px);
+}
+.section-maps .section-mapitem:nth-child(2) img {
+  height: clamp(104px, 13vw, 168px);
+}
+@media screen and (max-width: 640px) {
+  .section-maps .section-mapitem:nth-child(1) img {
+    height: clamp(120px, 33vw, 184px);
+  }
+  .section-maps .section-mapitem:nth-child(2) img {
+    height: clamp(92px, 25vw, 140px);
+  }
+}
