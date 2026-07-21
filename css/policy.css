@@ -1,0 +1,47 @@
+@charset "UTF-8";
+.__inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: "Oswald", sans-serif;
+}
+.title-wrap {
+  width: 100%;
+  height: 100%;
+  padding: 100px 0 100px 0;
+  text-align: center;
+}
+.title-wrap h2 {
+  width: 100%;
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(1.875rem, 1.125rem + 3.75vw, 3rem);
+}
+.policy-wrap__txt {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #000000;
+  padding-bottom: 120px;
+  height: 100%;
+}
+.footer-wrap {
+  text-align: center;
+}
+@media screen and (max-width: 1000px) {
+  .policy-wrap__txt {
+    width: 90%;
+    margin: 0 auto;
+    height: 100%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .policy-wrap__txt {
+    font-size: 14px;
+    height: 100%;
+  }
+  .policy-wrap__txt strong {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #000000;
+  padding-bottom: 120px;
+  height: 100%;
+}
+}

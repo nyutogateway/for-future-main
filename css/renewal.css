@@ -1,0 +1,1364 @@
+@charset "UTF-8";
+
+/* =========================================================
+   FOR FUTURE 25 — Renewal layer
+   既存 main.css / index.css の上に読み込む上乗せレイヤー。
+   トーン（コーラル×白×黒カード）は踏襲しつつ、質感とアニメを刷新。
+   ========================================================= */
+
+:root {
+  /* Brand palette */
+  --coral: #de5f5c;
+  --orange: #d99354;
+  --brand-grad: linear-gradient(120deg, #de5f5c 0%, #d99354 100%);
+  --brand-grad-v: linear-gradient(#de5f5c, #d99354);
+
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --card-bg: #232323;
+  --paper: #ffffff;
+  --paper-warm: #fbf8f6;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* やわらかく減速 */
+  --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-slow: 0.9s;
+  --dur: 0.55s;
+  --dur-fast: 0.3s;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background-color: #fff;
+}
+
+/* =========================================================
+   1. ページ遷移オーバーレイ（読み込み時フェードイン / 離脱時フェードアウト）
+   ========================================================= */
+.page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  background: var(--brand-grad);
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.7s var(--ease-out);
+}
+.page-transition.is-hidden {
+  opacity: 0;
+}
+.page-transition.is-leaving {
+  opacity: 1;
+  pointer-events: all;
+}
+.page-transition__mark {
+  color: #fff;
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(1.5rem, 1rem + 3vw, 2.75rem);
+  letter-spacing: 0.18em;
+  opacity: 0;
+  transform: translateY(8px);
+  -webkit-animation: ptMarkIn 0.6s var(--ease-out) 0.05s forwards;
+  animation: ptMarkIn 0.6s var(--ease-out) 0.05s forwards;
+}
+@-webkit-keyframes ptMarkIn {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes ptMarkIn {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+/* オーバーレイが消えるまで本文の初期チラつきを抑える */
+.pt-loading main,
+.pt-loading .footer {
+  will-change: opacity;
+}
+
+/* =========================================================
+   2. スクロール連動の登場（JSが .will-reveal → .revealed を付与）
+   ========================================================= */
+.will-reveal {
+  opacity: 0;
+  transform: translateY(34px);
+  transition:
+    opacity var(--dur-slow) var(--ease-out),
+    transform var(--dur-slow) var(--ease-out);
+  will-change: opacity, transform;
+}
+.will-reveal.revealed {
+  opacity: 1;
+  transform: none;
+}
+/* バリエーション：軽く拡大しながら */
+.will-reveal.reveal-scale {
+  transform: translateY(24px) scale(0.97);
+}
+.will-reveal.reveal-scale.revealed {
+  transform: none;
+}
+
+/* =========================================================
+   3. トップ（ヒーロー）の見せ方を強化
+   ========================================================= */
+/* モザイク画像を登場後もゆっくり浮遊させる */
+.top-wrap [class^="top-wrap__img"] {
+  border-radius: 6px;
+  overflow: hidden;
+}
+.top-wrap [class^="top-wrap__img"] img {
+  transition: transform 1.2s var(--ease-out);
+}
+.top-wrap [class^="top-wrap__img"]:hover img {
+  transform: scale(1.06);
+}
+
+/* 登場アニメ後に発動する浮遊（JSが .float-on を付与） */
+.top-wrap.float-on .top-wrap__img1 {
+  -webkit-animation: floatY 6.5s var(--ease-inout) infinite;
+  animation: floatY 6.5s var(--ease-inout) infinite;
+}
+.top-wrap.float-on .top-wrap__img2 {
+  -webkit-animation: floatY 7.5s var(--ease-inout) infinite 0.4s;
+  animation: floatY 7.5s var(--ease-inout) infinite 0.4s;
+}
+.top-wrap.float-on .top-wrap__img3 {
+  -webkit-animation: floatY 6.8s var(--ease-inout) infinite 0.2s;
+  animation: floatY 6.8s var(--ease-inout) infinite 0.2s;
+}
+.top-wrap.float-on .top-wrap__img4 {
+  -webkit-animation: floatY 8s var(--ease-inout) infinite 0.6s;
+  animation: floatY 8s var(--ease-inout) infinite 0.6s;
+}
+.top-wrap.float-on .top-wrap__img5 {
+  -webkit-animation: floatY 7.2s var(--ease-inout) infinite 0.3s;
+  animation: floatY 7.2s var(--ease-inout) infinite 0.3s;
+}
+.top-wrap.float-on .top-wrap__img6 {
+  -webkit-animation: floatY 6.6s var(--ease-inout) infinite 0.5s;
+  animation: floatY 6.6s var(--ease-inout) infinite 0.5s;
+}
+.top-wrap.float-on .top-wrap__img7 {
+  -webkit-animation: floatY 7.8s var(--ease-inout) infinite 0.1s;
+  animation: floatY 7.8s var(--ease-inout) infinite 0.1s;
+}
+.top-wrap.float-on .top-wrap__img8 {
+  -webkit-animation: floatY 7s var(--ease-inout) infinite 0.7s;
+  animation: floatY 7s var(--ease-inout) infinite 0.7s;
+}
+@-webkit-keyframes floatY {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes floatY {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* タイトルのグラデを動かして生命感を出す */
+.top-wrap__title p {
+  background-image: var(--brand-grad);
+  background-size: 200% 200%;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px -12px rgba(222, 95, 92, 0.55);
+  -webkit-animation: gradShift 8s ease infinite;
+  animation: gradShift 8s ease infinite;
+}
+@-webkit-keyframes gradShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes gradShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* SCROLL インジケータの刷新 */
+.scroll-indicator p {
+  letter-spacing: 0.3em;
+  color: var(--ink-soft);
+}
+.scroll-indicator .line {
+  width: 1px;
+  height: 56px;
+  background: linear-gradient(to bottom, var(--coral), transparent);
+}
+
+/* =========================================================
+   4. ABOUT の質感
+   ========================================================= */
+.about {
+  position: relative;
+}
+.about-wrap__title h2 {
+  background: var(--brand-grad);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-animation: gradShift 10s ease infinite;
+  animation: gradShift 10s ease infinite;
+}
+.about-wrap__body__head h4 {
+  line-height: 1.5;
+}
+.about-wrap__body__text p {
+  color: #2a2a2a;
+}
+
+/* セクション見出しに細い装飾ライン（スクロールで伸びる） */
+.article-wrap__body__first {
+  border-radius: 8px;
+  box-shadow: 0 18px 40px -20px rgba(217, 147, 84, 0.6);
+  overflow: hidden;
+  position: relative;
+}
+.article-wrap__body__first::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    120% 120% at 20% 0%,
+    rgba(255, 255, 255, 0.25),
+    transparent 55%
+  );
+  pointer-events: none;
+}
+
+/* =========================================================
+   5. カードの質感（ホバーの浮き・影・画像ズーム・裏返し）
+   ========================================================= */
+.article-wrap__body__card {
+  background-color: var(--card-bg);
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px -14px rgba(0, 0, 0, 0.5);
+  /* opacity も含める（含めないと登場時にフェードせずパッと出てしまう） */
+  transition:
+    opacity 0.7s var(--ease-out),
+    transform 0.55s var(--ease-out),
+    box-shadow 0.45s var(--ease-out);
+  will-change: opacity, transform;
+}
+.article-wrap__body__card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 26px 44px -22px rgba(0, 0, 0, 0.55);
+}
+
+.article-wrap__body__card__img {
+  border-radius: 0;
+}
+.article-wrap__body__card__img img {
+  border-radius: 0;
+  transition:
+    opacity 0.55s var(--ease-out),
+    transform 0.9s var(--ease-out),
+    -webkit-filter 0.55s var(--ease-out);
+  transition:
+    opacity 0.55s var(--ease-out),
+    transform 0.9s var(--ease-out),
+    filter 0.55s var(--ease-out);
+  transition:
+    opacity 0.55s var(--ease-out),
+    transform 0.9s var(--ease-out),
+    filter 0.55s var(--ease-out),
+    -webkit-filter 0.55s var(--ease-out);
+}
+/* 表画像：ホバーでゆっくりズーム＆明るく */
+.article-wrap__body__card:hover .card-img-front {
+  transform: scale(1.08);
+  -webkit-filter: brightness(100%);
+  filter: brightness(100%);
+}
+/* 裏ロゴ：ふわっと拡大しながら現れる */
+.article-wrap__body__card__img .card-img-back {
+  transition:
+    opacity 0.5s var(--ease-out),
+    transform 0.6s var(--ease-out);
+  transform: translate(-50%, -50%) scale(0.82);
+}
+.article-wrap__body__card:hover .card-img-back {
+  transform: translate(-50%, -50%) scale(1);
+}
+/* 種別（業種）ラベル：一旦非表示。
+   復活させる場合は下の display:none を外し、色＝コーラル＋白グロー＋黒縁で縁取る。 */
+.article-wrap__body__card__kinds {
+  display: none;
+  color: var(--coral);
+  text-shadow:
+    0 0 3px rgba(255, 255, 255, 0.95),
+    0 0 6px rgba(255, 255, 255, 0.85),
+    0 1px 4px rgba(0, 0, 0, 0.35);
+  letter-spacing: 0.06em;
+}
+.article-wrap__body__card__under {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.15), transparent);
+}
+.article-wrap__body__card__name {
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 0.02em;
+}
+
+/* =========================================================
+   6. ヘッダー / ナビの質感
+   ========================================================= */
+#h-nav {
+  background: rgba(255, 255, 255, 0.92);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+#h-nav li a {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 6px;
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 0.12em;
+}
+#h-nav li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--brand-grad);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease-out);
+}
+#h-nav li a:hover::after {
+  transform: scaleX(1);
+}
+
+/* =========================================================
+   8. HERO 大改修 — 「表紙マストヘッド」（雑誌の表紙 / 白基調・線区切り）
+   写真に頼らず、大型ロゴ＋見出しコピー（カバーライン）＋罫線で
+   「読みたくなる雑誌の表紙」を作る。上下にマストヘッド罫。
+   ========================================================= */
+.cover {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(22px, 3vw, 44px) clamp(24px, 5vw, 76px) clamp(20px, 3vw, 36px);
+  background: #fff;
+}
+.cover > * {
+  opacity: 0;
+  transform: translateY(16px);
+  -webkit-animation: coverIn 0.9s var(--ease-out) forwards;
+  animation: coverIn 0.9s var(--ease-out) forwards;
+}
+@-webkit-keyframes coverIn {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes coverIn {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* 上部マストヘッド罫 */
+.cover__bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(0.62rem, 0.55rem + 0.28vw, 0.8rem);
+  letter-spacing: 0.26em;
+  color: var(--ink);
+  -webkit-animation-delay: 0.1s;
+  animation-delay: 0.1s;
+}
+.cover__bar span:last-child {
+  color: var(--ink-soft);
+}
+
+/* 中央（表紙の主役） */
+.cover__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 0;
+  -webkit-animation-delay: 0.25s;
+  animation-delay: 0.25s;
+}
+.cover__eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(0.7rem, 0.6rem + 0.3vw, 0.85rem);
+  letter-spacing: 0.42em;
+  color: var(--coral);
+  margin-bottom: 34px;
+}
+.cover__eyebrow::before,
+.cover__eyebrow::after {
+  content: "";
+  width: clamp(28px, 6vw, 54px);
+  height: 1px;
+  background: var(--brand-grad);
+}
+.cover__logo {
+  width: clamp(300px, 52vw, 660px);
+  height: auto;
+}
+.cover__rule {
+  width: clamp(160px, 28vw, 340px);
+  height: 3px;
+  margin: 34px 0 26px;
+  border-radius: 2px;
+  background: var(--brand-grad);
+}
+.cover__tagline {
+  font-family: "Noto Serif JP", serif;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 1.1rem + 1.9vw, 2.6rem);
+  line-height: 1.5;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+}
+.cover__tagline em {
+  font-style: normal;
+  color: var(--coral);
+}
+.cover__lines {
+  margin-top: 34px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 13px;
+  max-width: 560px;
+  text-align: left;
+}
+.cover__line {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: clamp(0.85rem, 0.78rem + 0.28vw, 1rem);
+  letter-spacing: 0.08em;
+  line-height: 1.6;
+  color: #333;
+}
+.cover__line::before {
+  content: "";
+  flex: none;
+  width: 24px;
+  height: 2px;
+  background: var(--brand-grad);
+}
+
+/* 掲載企業ロゴ帯（高さ揃え・グレー基調／ホバーで原色） */
+.cover__companies {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 26px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  -webkit-animation-delay: 0.42s;
+  animation-delay: 0.42s;
+}
+.cover__companies-label {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.32em;
+  text-indent: 0.32em;
+  color: var(--ink-soft);
+}
+/* 常時スクロールのスライダー（マーキー）。2セットで無限ループ */
+/* 2段構成：上下2行を縦に並べる */
+.cover__marquee {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2px, 0.5vw, 8px);
+}
+/* 各行が横スクロールのマスク窓 */
+.cover__marquee-row {
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to right, transparent, #000 8%, #000 92%, transparent
+  );
+  mask-image: linear-gradient(
+    to right, transparent, #000 8%, #000 92%, transparent
+  );
+}
+.cover__marquee-track {
+  display: flex;
+  align-items: center;
+  width: -webkit-max-content;
+  width: max-content;
+  animation: coverMarquee 55s linear infinite;
+}
+/* 下段は逆方向へ流す */
+.cover__marquee-track--rev {
+  animation-name: coverMarqueeRev;
+  animation-duration: 62s;
+}
+/* 各リンクは固定サイズの箱に統一。ロゴ画像の縦横比が違っても
+   箱のサイズは一定で、中央に contain で収める。 */
+.cover__marquee-item {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(116px, 12.5vw, 160px);
+  height: clamp(64px, 8vw, 94px);
+  margin-right: clamp(4px, 0.8vw, 14px);
+  line-height: 0;
+  cursor: pointer;
+}
+.cover__marquee-track img {
+  max-width: 88%;
+  max-height: 82%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.62;
+  transition:
+    filter 0.35s var(--ease-out),
+    opacity 0.35s var(--ease-out),
+    transform 0.35s var(--ease-out);
+}
+.cover__marquee-item:hover img {
+  filter: none;
+  opacity: 1;
+  transform: scale(1.08);
+}
+@keyframes coverMarquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes coverMarqueeRev {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+/* 下部マストヘッド罫＋SCROLL */
+.cover__foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.18);
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(0.62rem, 0.55rem + 0.28vw, 0.75rem);
+  letter-spacing: 0.24em;
+  color: var(--ink-soft);
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+.cover__scroll {
+  text-align: center;
+  color: var(--ink);
+}
+.cover__scroll .line {
+  display: block;
+  width: 1px;
+  height: 40px;
+  margin: 8px auto 0;
+  background: linear-gradient(to bottom, var(--coral), transparent);
+  -webkit-animation: bounceLoop 1.5s ease-in-out infinite;
+  animation: bounceLoop 1.5s ease-in-out infinite;
+}
+
+@media screen and (max-width: 600px) {
+  .cover__bar {
+    letter-spacing: 0.14em;
+    gap: 12px;
+  }
+  .cover__bar span {
+    white-space: nowrap;
+  }
+  .cover__lines {
+    align-items: center;
+    text-align: center;
+  }
+  .cover__line {
+    align-items: flex-start;
+  }
+  .cover__foot {
+    letter-spacing: 0.16em;
+  }
+}
+
+/* =========================================================
+   10. FOOTER 刷新 — 濃色でメリハリ（全白の間伸びを断つアンカー）
+   ロゴは白抜き、協力ロゴ(NBC)は白チップで本来の色を保持。
+   ========================================================= */
+.footer {
+  position: relative;
+  background: #fff;
+  color: var(--ink);
+  padding: clamp(52px, 7vw, 80px) 24px clamp(26px, 4vw, 38px);
+  border-top: 3px solid;
+  -o-border-image: var(--brand-grad) 1;
+  border-image: var(--brand-grad) 1; /* コーラルの区切り線でメリハリ */
+}
+.footer-wrap {
+  margin: 0 auto;
+  max-width: 880px;
+  text-align: center;
+}
+.footer-wrap__img {
+  width: clamp(210px, 28vw, 290px);
+  margin: 0 auto 30px;
+}
+.footer-wrap__img img {
+  -webkit-filter: none;
+  filter: none; /* 白地なのでロゴは元色 */
+}
+.footer-wrap__imghousou {
+  width: auto;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin: 0 auto;
+}
+.footer-wrap__imghousou p {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-indent: 0.3em;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+.footer-wrap__imghousou a {
+  display: inline-block;
+  padding: 0;
+  background: transparent;
+  line-height: 0;
+}
+.footer-wrap__imghousou img {
+  width: 150px;
+  height: auto;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+.footer-wrap__text {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+.footer-wrap__text p {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  color: var(--ink-soft);
+}
+
+/* =========================================================
+   11. INDEX 誌面化 — ABOUT / 25 STORIES を interview のトーンに統一
+   （明朝見出し＋コーラル/グレーの区切り線）
+   ========================================================= */
+/* --- ABOUT --- */
+.about-wrap__body__head h4 {
+  font-family: "Noto Serif JP", serif;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+  position: relative;
+  padding-bottom: 22px;
+}
+.about-wrap__body__head h4::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 56px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--brand-grad);
+}
+.about-wrap__body__text p {
+  color: #333;
+}
+
+/* --- 25 STORIES 見出し（誌面のCONTENTS） --- */
+.article-wrap__head {
+  max-width: 900px;
+  margin: 0 auto clamp(38px, 5vw, 66px);
+  padding-top: clamp(16px, 3vw, 40px);
+  text-align: center;
+}
+.section-kicker {
+  display: inline-block;
+  margin-bottom: 20px;
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(0.78rem, 0.68rem + 0.4vw, 1rem);
+  letter-spacing: 0.42em;
+  text-indent: 0.42em;
+  color: var(--coral);
+}
+.section-title {
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  font-size: clamp(2.8rem, 1.8rem + 4vw, 5rem);
+  letter-spacing: 0.06em;
+  line-height: 1;
+  color: var(--ink);
+}
+.section-title::after {
+  content: "";
+  display: block;
+  width: clamp(150px, 22vw, 280px);
+  height: 4px;
+  margin: 28px auto 0;
+  border-radius: 2px;
+  background: var(--brand-grad);
+}
+.section-sub {
+  margin-top: 22px;
+  font-family: "Noto Serif JP", serif;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--ink);
+  font-size: clamp(1.15rem, 0.95rem + 0.7vw, 1.6rem);
+}
+
+/* =========================================================
+   12. サブページ（CONTACT / PRIVACY POLICY）誌面トーン
+   見出しを明朝＋コーラル罫に。白基調・線区切りで統一。
+   ========================================================= */
+.title {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.title-wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: clamp(120px, 18vh, 190px) 24px clamp(34px, 5vw, 54px);
+  text-align: left;
+}
+.title-wrap h2 {
+  display: inline-block;
+  position: relative;
+  width: auto;
+  font-family: "Noto Serif JP", serif;
+  font-weight: 600;
+  font-size: clamp(1.9rem, 1.3rem + 2.4vw, 3rem);
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  padding-bottom: 20px;
+}
+.title-wrap h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 64px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--brand-grad);
+}
+
+/* --- PRIVACY POLICY 本文 --- */
+.policy-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: clamp(40px, 6vw, 72px) 24px;
+}
+.policy-wrap__txt {
+  font-family: "Noto Sans JP", sans-serif;
+  color: #333;
+}
+.policy-wrap__txt h3 {
+  font-family: "Noto Serif JP", serif;
+  font-weight: 600;
+  font-size: clamp(1.1rem, 0.95rem + 0.6vw, 1.35rem);
+  line-height: 1.5;
+  margin: 44px 0 16px;
+  padding-left: 16px;
+  border-left: 3px solid;
+  -o-border-image: var(--brand-grad) 1;
+  border-image: var(--brand-grad) 1;
+}
+.policy-wrap__txt p {
+  letter-spacing: 0.03em;
+  line-height: 1.95;
+}
+.policy-wrap__txt a {
+  color: var(--coral);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+}
+
+/* --- CONTACT フォーム 微調整（誌面トーン） --- */
+.contact-wrap__con__ttl {
+  font-family: "Noto Serif JP", serif;
+  font-weight: 600;
+}
+.contact-btn {
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 0.12em;
+}
+
+/* =========================================================
+   13. STORIES を5章立て（CHAPTER 01〜05）
+   各章に見出し＋区切り罫。未定枠は COMING SOON。
+   ========================================================= */
+.chapter {
+  margin-bottom: clamp(48px, 7vw, 88px);
+}
+/* 章内のカード：3列・中央寄せ（5枚なら 3＋2 の2行・下段も中央）＋少しサイズアップ */
+.chapter .article-wrap__body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(20px, 2.6vw, 34px);
+}
+.chapter .article-wrap__body__card {
+  width: clamp(264px, 29vw, 300px);
+  height: 372px;
+  margin: 0;
+}
+.chapter .article-wrap__body__card__img {
+  height: 236px;
+}
+.chapter .card-coming {
+  height: 236px;
+}
+/* カード内の文字も拡大 */
+.chapter .article-wrap__body__card__under {
+  padding: 16px 14px;
+}
+.chapter .article-wrap__body__card__kinds {
+  font-size: 27px;
+}
+.chapter .article-wrap__body__card__name {
+  font-size: 28px;
+  line-height: 1.15;
+}
+.chapter .article-wrap__body__card__job {
+  font-size: 14px;
+  line-height: 1.3;
+}
+.chapter__head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: clamp(26px, 3.5vw, 42px);
+}
+.chapter__no {
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  font-size: clamp(2rem, 1.3rem + 3vw, 3.6rem);
+  letter-spacing: 0em;
+  text-indent: 0.14em;
+  background: linear-gradient(#de5f5c, #d99354);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --- COMING SOON（未定枠） --- */
+.article-wrap__body__card.is-coming {
+  background: #fafafa;
+  border: 1px dashed rgba(0, 0, 0, 0.18);
+  box-shadow: none;
+  cursor: default;
+}
+.article-wrap__body__card.is-coming:hover {
+  transform: none;
+  box-shadow: none;
+}
+.card-coming {
+  display: grid;
+  place-items: center;
+  height: 200px;
+  font-family: "Oswald", sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  color: #c4c4c4;
+}
+.is-coming .article-wrap__body__card__under {
+  background: none;
+}
+.is-coming .article-wrap__body__card__kinds,
+.is-coming .article-wrap__body__card__name,
+.is-coming .article-wrap__body__card__job {
+  color: #bdbdbd;
+}
+
+/* =========================================================
+   16. ハンバーガーメニューの中身（誌面調・番号＋EN＋JP）
+   ========================================================= */
+/* 背景に、旧トップのグラデ曲線（破線.svg）を「上から下」に流す */
+#h-nav {
+  background-color: rgba(255, 255, 255, 0.985);
+  overflow: hidden;
+}
+#h-nav::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: url("../img/破線.svg") no-repeat center center;
+  background-size: contain; /* 見切れさせず波線全体を表示 */
+  opacity: 0.28;
+  pointer-events: none;
+}
+#h-nav__list {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  width: min(88%, 540px);
+}
+#h-nav ul {
+  position: static;
+  top: auto;
+  left: auto;
+  transform: none;
+}
+#h-nav li {
+  margin: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+#h-nav li:last-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+#h-nav li a {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: clamp(15px, 2.4vw, 26px) 6px;
+  text-align: left;
+  font-size: inherit;
+}
+#h-nav li a::after {
+  display: none; /* §6の下線は無効化（行罫で区切る） */
+}
+.h-nav__no {
+  flex: none;
+  width: 2.2em;
+  font-family: "Oswald", sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  color: var(--coral);
+  transition: color 0.3s var(--ease-out);
+}
+.h-nav__en {
+  flex: 1;
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.5rem, 1.1rem + 2vw, 2.5rem);
+  letter-spacing: 0.05em;
+  line-height: 1;
+  color: var(--ink);
+  transition: color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+}
+.h-nav__jp {
+  flex: none;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+#h-nav li a:hover .h-nav__en {
+  color: var(--coral);
+  transform: translateX(6px);
+}
+#h-nav li a:hover .h-nav__no {
+  color: var(--orange);
+}
+.h-nav__tagline {
+  margin-top: 40px;
+  font-family: "Noto Serif JP", serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  text-align: left;
+}
+.h-nav__copy {
+  margin-top: 12px;
+  font-family: "Oswald", sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  color: var(--ink-soft);
+  text-align: left;
+}
+
+/* =========================================================
+   15. ヘッダーのロゴ（左）— スクロールで左上にフェードイン
+   ========================================================= */
+.header-logo {
+  position: fixed;
+  top: 16px;
+  left: clamp(16px, 3vw, 40px);
+  z-index: 9998;
+  width: clamp(140px, 18vw, 205px);
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+}
+.header-logo.is-visible {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+.header-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 2px 8px rgba(255, 255, 255, 0.8));
+}
+
+/* =========================================================
+   15b. ハンバーガーの3本線 — 単調な黒3本 → ブランドグラデ＋
+   左揃えで長さに変化をつけた誌面調アイコン。ホバーで3本が揃う。
+   ========================================================= */
+.h-open span {
+  background: var(--brand-grad);
+  border-radius: 3px;
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.9);
+}
+.h-open span:nth-of-type(1) { width: 50%; }
+.h-open span:nth-of-type(2) { width: 32%; } /* 中央を短く */
+.h-open span:nth-of-type(3) { width: 41%; }
+/* ホバーで3本が同じ長さに揃う小演出 */
+.h-open:hover span {
+  width: 50%;
+}
+/* 開いた状態（×）は brand-grad のまま。長さは main.css の active ルールが
+   50% に上書きするので×はきれいに閉じる（ここでは触らない）。 */
+
+/* =========================================================
+   14. カードのホバーを反転（通常＝ロゴ / ホバー＝写真）
+   ========================================================= */
+.article-wrap__body__card .card-img-front {
+  opacity: 0;
+}
+.article-wrap__body__card .card-img-back {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+.article-wrap__body__card:hover .card-img-front {
+  opacity: 1;
+  transform: scale(1.06);
+}
+.article-wrap__body__card:hover .card-img-back {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+/* =========================================================
+   9. アクセシビリティ：動きを減らす設定を尊重
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    -webkit-animation-duration: 0.001ms !important;
+    animation-duration: 0.001ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .will-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .page-transition {
+    display: none;
+  }
+}
+
+/* =========================================================
+   17. 全体モーション強化（上品版）
+   スクロール進捗バー / 見出し罫線の伸び / ナビのスタッガー登場
+   ========================================================= */
+
+/* --- スクロール進捗バー（全ページ共通・極細グラデ） --- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 3px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  background: var(--brand-grad);
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* --- 見出しの罫線がスクロール登場時に伸びる --- */
+/* 25 STORIES（中央から） */
+.article-wrap__head .section-title::after {
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.9s var(--ease-out) 0.15s;
+}
+.article-wrap__head.revealed .section-title::after {
+  transform: scaleX(1);
+}
+/* ABOUT 見出し（左から） */
+.about-wrap__body__head h4::after {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.8s var(--ease-out) 0.2s;
+}
+.about-wrap__body__head.revealed h4::after {
+  transform: scaleX(1);
+}
+
+/* --- ハンバーガーメニュー：開いた時に項目がスタッガー登場 --- */
+#h-nav li,
+#h-nav .h-nav__tagline,
+#h-nav .h-nav__copy {
+  opacity: 0;
+  transform: translateX(24px);
+  transition:
+    opacity 0.5s var(--ease-out),
+    transform 0.5s var(--ease-out);
+}
+#h-nav.panelactive li,
+#h-nav.panelactive .h-nav__tagline,
+#h-nav.panelactive .h-nav__copy {
+  opacity: 1;
+  transform: none;
+}
+#h-nav.panelactive li:nth-child(1) { transition-delay: 0.18s; }
+#h-nav.panelactive li:nth-child(2) { transition-delay: 0.26s; }
+#h-nav.panelactive li:nth-child(3) { transition-delay: 0.34s; }
+#h-nav.panelactive li:nth-child(4) { transition-delay: 0.42s; }
+#h-nav.panelactive li:nth-child(5) { transition-delay: 0.50s; }
+#h-nav.panelactive .h-nav__tagline { transition-delay: 0.58s; }
+#h-nav.panelactive .h-nav__copy { transition-delay: 0.64s; }
+
+/* --- モーション低減設定を尊重（新規分も無効化＋バーは非表示） --- */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress { display: none; }
+  .article-wrap__head .section-title::after,
+  .about-wrap__body__head h4::after {
+    transform: none !important;
+  }
+  #h-nav li,
+  #h-nav .h-nav__tagline,
+  #h-nav .h-nav__copy {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* =========================================================
+   18. 余白（ホワイトスペース）を全体的にゆとり方向へ
+   セクションの縦リズムを広げ、上質な間（ま）を作る。
+   ========================================================= */
+/* --- TOP：ABOUT / 25 STORIES --- */
+.about {
+  margin-top: 0;
+  padding: clamp(104px, 13vw, 184px) 0;
+}
+.article {
+  padding: clamp(20px, 3vw, 48px) 0 clamp(112px, 14vw, 196px);
+}
+.article-wrap__head {
+  margin-bottom: clamp(52px, 6vw, 84px);
+  padding-top: clamp(24px, 4vw, 56px);
+}
+.about-wrap__body__head {
+  margin-bottom: clamp(28px, 3.4vw, 44px);
+}
+/* 章と章の間をさらに広げる */
+.chapter {
+  margin-bottom: clamp(64px, 9vw, 116px);
+}
+.chapter__head {
+  margin-bottom: clamp(34px, 4.4vw, 56px);
+}
+
+/* --- 記事ページ（company.html／誌面）の間隔 --- */
+.mag-article {
+  padding: clamp(68px, 8.5vw, 128px) 24px;
+}
+.mag-section {
+  margin-bottom: clamp(66px, 8.5vw, 124px);
+}
+
+/* --- フッター上の余白も少し増やす --- */
+.footer {
+  padding-top: clamp(64px, 8vw, 104px);
+}
+
+/* =========================================================
+   19. 記事カバーのキッカーをロゴ画像に（右の罫線は維持）
+   ロゴ画像は必ず小さく固定（原寸で表示されて見出しと重なるのを防ぐ）。
+   interview.css より詳細度を高くして確実に勝たせる。
+   ========================================================= */
+.mag-cover__kicker {
+  gap: 18px;
+  align-items: center;
+}
+.mag-cover__kicker .mag-cover__logo {
+  height: clamp(24px, 3vw, 36px) !important;
+  max-height: 36px;
+  width: auto !important;
+  max-width: 180px;
+  display: block;
+  flex: 0 0 auto;
+}
+
+/* =========================================================
+   20. 記事カバー：テキスト側の裏に軽いオーバーレイ（奥行き付け）
+   写真列には掛からないよう .mag-cover__text 内に閉じ込める。
+   ========================================================= */
+.mag-cover__text::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(125deg, var(--paper-warm) 0%, rgba(255, 255, 255, 0) 62%),
+    radial-gradient(72% 58% at 6% 4%, rgba(222, 95, 92, 0.06), transparent 60%),
+    radial-gradient(66% 60% at 4% 100%, rgba(217, 147, 84, 0.05), transparent 62%);
+}
+
+/* =========================================================
+   21. SP（スマホ）対応 — 横はみ出しの根絶と可読性
+   ========================================================= */
+/* 横スクロールの保険 */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+img {
+  max-width: 100%;
+}
+
+/* 根本原因：align-items:center で .cover__lines が最長行の幅を取り
+   コンテナからはみ出していた。コンテナ幅を超えないよう固定。 */
+.cover__lines {
+  max-width: min(560px, 100%);
+}
+
+/* --- TOP カバー（スマホ） --- */
+@media screen and (max-width: 600px) {
+  .cover {
+    padding: clamp(20px, 5vw, 32px) 18px clamp(18px, 4vw, 28px);
+  }
+  .cover__logo {
+    width: min(84vw, 320px);
+  }
+  .cover__rule {
+    margin: 24px 0 20px;
+  }
+  .cover__tagline {
+    font-size: clamp(1.3rem, 6.2vw, 1.8rem);
+    letter-spacing: 0.08em;
+  }
+  .cover__lines {
+    width: 100%;
+    margin-top: 24px;
+    gap: 11px;
+  }
+  .cover__line {
+    font-size: clamp(0.82rem, 3.6vw, 0.95rem);
+    line-height: 1.7;
+  }
+  .cover__companies {
+    padding: 20px 0;
+  }
+}
+
+/* --- 記事カバー / 本文（スマホ） --- */
+@media screen and (max-width: 640px) {
+  .mag-cover__text {
+    padding: clamp(28px, 7vw, 44px) 22px;
+  }
+  .mag-cover__tagline {
+    font-size: clamp(1.5rem, 6.4vw, 2.1rem);
+  }
+  .mag-cover__name {
+    font-size: clamp(1.15rem, 4.6vw, 1.5rem);
+  }
+  .mag-cover__bio,
+  .mag-cover__meta {
+    overflow-wrap: break-word;
+  }
+  .mag-article {
+    padding: clamp(48px, 12vw, 72px) 20px;
+  }
+  .mag-section__body {
+    overflow-wrap: break-word;
+  }
+}
+
+/* =========================================================
+   22. SP：閉じたハンバーガーメニューによる横はみ出しの根絶
+   right:-120% で画面右外に置くと position:fixed が overflow-x:hidden で
+   clip されず、ページ幅を広げてしまう。transform 方式に変更して解消。
+   ========================================================= */
+#h-nav {
+  right: 0;
+  left: auto;
+  transform: translateX(100%);
+}
+#h-nav.panelactive {
+  right: 0;
+  transform: translateX(0);
+}

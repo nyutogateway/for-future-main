@@ -1,0 +1,413 @@
+@charset "UTF-8";
+
+/* =========================================================
+   FOR FUTURE 25 — Interview（個別インタビュー＝一流誌の特集）
+   「表紙＋誌面記事」フォーマット。tokens は renewal.css を利用。
+   ディスプレイ数字/ローマ字=Oswald、見出し/リード=明朝(Noto Serif JP)、
+   本文=Noto Sans JP。
+   ========================================================= */
+
+.mag {
+  --measure: 760px;              /* 本文の読みやすい行長 */
+  --serif: "Noto Serif JP", serif;
+  color: var(--ink);
+  background: #fff;
+}
+
+/* =========================================================
+   1. 表紙（COVER）
+   ========================================================= */
+.mag-cover {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: 1.02fr 0.98fr;
+  background: #fff;
+  overflow: hidden;
+}
+
+/* 左：誌面テキスト */
+.mag-cover__text {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(40px, 5.5vw, 104px);
+}
+.mag-cover__text > * {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: magIn 0.9s var(--ease-out) forwards;
+}
+.mag-cover__kicker { animation-delay: 0.15s; }
+.mag-cover__tagline{ animation-delay: 0.3s; }
+.mag-cover__name   { animation-delay: 0.46s; }
+.mag-cover__meta   { animation-delay: 0.6s; }
+.mag-cover__bio    { animation-delay: 0.76s; }
+.mag-cover__link   { animation-delay: 0.88s; }
+.mag-cover__foot   { animation-delay: 1s; }
+
+.mag-cover__kicker {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(0.7rem, 0.6rem + 0.35vw, 0.9rem);
+  letter-spacing: 0.36em;
+  text-indent: 0.36em;
+  color: var(--coral);
+}
+.mag-cover__kicker::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--coral), transparent);
+}
+.mag-cover__mast {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.28em;
+  color: var(--ink-soft);
+  margin-bottom: 30px;
+}
+.mag-cover__name {
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  font-size: clamp(1.3rem, 1rem + 1.3vw, 1.95rem);
+  overflow-wrap: break-word;
+}
+.mag-cover__name span {
+  display: block;
+  margin-top: 14px;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(1.1rem, 0.8rem + 1.2vw, 1.6rem);
+  letter-spacing: 0.12em;
+  color: var(--ink);
+}
+.mag-cover__meta {
+  margin-top: 22px;
+  font-size: clamp(0.9rem, 0.8rem + 0.4vw, 1.05rem);
+  letter-spacing: 0.1em;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+.mag-cover__meta strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+.mag-cover__tagline {
+  margin: 0 0 20px;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(1.7rem, 1.15rem + 2.6vw, 3.1rem);
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+.mag-cover__tagline::before {
+  content: "“";
+  color: var(--coral);
+  margin-right: 2px;
+}
+.mag-cover__tagline::after {
+  content: "”";
+  color: var(--coral);
+  margin-left: 2px;
+}
+.mag-cover__lead {
+  margin-top: 26px;
+  max-width: 40em;
+  font-size: clamp(0.82rem, 0.76rem + 0.3vw, 0.95rem);
+  line-height: 2;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+}
+.mag-cover__bio {
+  margin-top: 26px;
+  max-width: 42em;
+  font-size: clamp(0.82rem, 0.76rem + 0.3vw, 0.95rem);
+  line-height: 2;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+.mag-cover__link {
+  display: inline-block;
+  align-self: flex-start;   /* flex縦並びで横伸びしないよう文字幅に収める */
+  margin-top: 16px;
+  font-family: "Oswald", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: var(--coral);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+.mag-cover__foot {
+  margin-top: auto;
+  padding-top: 34px;
+}
+.mag-cover__rule {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.14);
+  margin-bottom: 16px;
+}
+.mag-cover__cred {
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  color: var(--ink-soft);
+}
+.mag-cover__cred strong { color: var(--ink); font-weight: 500; }
+
+/* 右：肖像 */
+.mag-cover__photo {
+  position: relative;
+  overflow: hidden;
+  background: #1a1a1a;
+}
+.mag-cover__photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  opacity: 0;
+  transform: scale(1.06);
+  animation: photoIn 1.6s var(--ease-out) 0.2s forwards;
+}
+@keyframes photoIn {
+  to { opacity: 1; transform: none; }
+}
+.mag-cover__photo::before {           /* 綴じのコーラル帯 */
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  z-index: 3;
+  background: var(--brand-grad-v);
+}
+.mag-cover__photo::after {            /* キャプション用の陰 */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.5), transparent 40%);
+  pointer-events: none;
+}
+.mag-cover__no {
+  position: absolute;
+  top: 24px; right: 26px;
+  z-index: 3;
+  font-family: "Oswald", sans-serif;
+  color: #fff;
+  text-align: right;
+  line-height: 1;
+}
+.mag-cover__no b {
+  display: block;
+  font-size: clamp(2.4rem, 1.5rem + 3.5vw, 4rem);
+  font-weight: 500;
+}
+.mag-cover__no small {
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  opacity: 0.85;
+}
+
+@keyframes magIn { to { opacity: 1; transform: none; } }
+
+/* =========================================================
+   2. 記事本文（ARTICLE）
+   ========================================================= */
+.mag-article {
+  padding: clamp(48px, 6vw, 88px) 24px;
+  background: #fff;
+}
+.mag-article__inner {
+  max-width: var(--measure);
+  margin: 0 auto;
+}
+
+/* リード（導入） */
+.mag-lead {
+  font-family: var(--serif);
+  font-size: clamp(1.05rem, 0.9rem + 0.6vw, 1.35rem);
+  line-height: 2.1;
+  letter-spacing: 0.04em;
+  color: #2a2a2a;
+  margin-bottom: clamp(48px, 7vw, 88px);
+}
+.mag-lead::first-letter {          /* ドロップキャップ */
+  float: left;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 3.6em;
+  line-height: 0.8;
+  padding: 6px 12px 0 0;
+  color: var(--coral);
+}
+
+/* セクション */
+.mag-section {
+  margin-bottom: clamp(52px, 7vw, 96px);
+}
+.mag-section__num {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.3em;
+  color: var(--coral);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.mag-section__num::after {           /* 番号に続く区切り罫 */
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.14);
+}
+.mag-section__head {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(1.4rem, 1.1rem + 1.2vw, 2rem);
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+  margin-bottom: 26px;
+}
+.mag-section__body p {
+  font-size: clamp(0.95rem, 0.88rem + 0.3vw, 1.05rem);
+  line-height: 2.15;
+  letter-spacing: 0.05em;
+  color: #333;
+  margin-bottom: 1.6em;
+}
+.mag-figure {
+  margin: clamp(36px, 5vw, 56px) 0;
+}
+.mag-figure img {
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 24px 50px -28px rgba(0, 0, 0, 0.5);
+}
+.mag-figure figcaption {
+  margin-top: 12px;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+  text-align: right;
+}
+
+/* プルクオート */
+.mag-pullquote {
+  margin: clamp(44px, 6vw, 72px) 0;
+  padding-left: 28px;
+  border-left: 3px solid;
+  border-image: var(--brand-grad-v) 1;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(1.2rem, 1rem + 1vw, 1.7rem);
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+}
+
+/* プロフィール */
+.mag-profile {
+  margin-top: clamp(56px, 8vw, 96px);
+  padding: clamp(30px, 4.5vw, 44px) 0 0;
+  background: transparent;
+  color: var(--ink);
+  border: none;
+  border-top: 3px solid;               /* コーラルの区切り線 */
+  border-image: var(--brand-grad) 1;
+  border-radius: 0;
+  box-shadow: none;
+}
+.mag-profile__label {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  color: var(--coral);
+  margin-bottom: 16px;
+}
+.mag-profile__name {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+}
+.mag-profile__com {
+  margin-top: 6px;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.08em;
+}
+.mag-profile__txt {
+  margin-top: 18px;
+  font-size: 0.92rem;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  color: #333;
+}
+.mag-profile__link {
+  display: inline-block;
+  margin-top: 18px;
+  font-family: "Oswald", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--coral);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+
+/* 記事が見つからない場合 */
+.mag-notfound {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  text-align: center;
+  padding: 80px 24px;
+  color: var(--ink);
+}
+
+/* 一覧に戻る */
+.mag-back {
+  display: block;
+  max-width: var(--measure);
+  margin: clamp(48px, 6vw, 72px) auto 0;
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 0.24em;
+  color: var(--ink-soft);
+  transition: color 0.3s var(--ease-out);
+}
+.mag-back:hover { color: var(--coral); }
+
+/* =========================================================
+   3. レスポンシブ
+   ========================================================= */
+@media screen and (max-width: 900px) {
+  .mag-cover {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+  .mag-cover__photo {
+    order: -1;
+    height: 54vh;
+    min-height: 340px;
+  }
+  .mag-cover__text {
+    padding: clamp(32px, 8vw, 56px);
+  }
+  .mag-cover__foot { padding-top: 26px; }
+}

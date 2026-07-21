@@ -1,0 +1,129 @@
+@charset "UTF-8";
+.contact-wrap {
+  width: 100%;
+  margin: 40px auto;
+  margin-bottom: 40px;
+}
+.contact-wrap__con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto 7%;
+}
+.contact-wrap__con__input,
+.contact-wrap__con__area {
+  height: 4.25rem;
+  width: 70%;
+  padding-left: 5px;
+  font-size:1rem;
+  box-shadow: #616161 0px 0px 5px 0px;
+  border: #bababa;
+}
+.contact-wrap__con.__area {
+  align-items: baseline;
+}
+.contact-wrap__con__ttl {
+  width: 40%;
+  height: 100%;
+  font-size: 1.1rem;
+  position: relative;
+}
+.contact-wrap__con__area {
+  height: 15rem;
+  padding: 12.5px 5px;
+}
+.contact-wrap__con__ttl::after {
+  content: "必須";
+  position: absolute;
+  top: 50%;
+  left: 67.5%;
+  transform: translateY(-50%) translateX(-50%);
+  text-align: center;
+  width: 25%;
+  line-height: 2.5;
+  font-size: 1rem;
+  color:#fff;
+  border-radius: 2px;
+  background:linear-gradient(to left,#de5f5c, #d99354);
+}
+button.contact-btn {
+  display: block;
+  margin: 60px auto 200px auto; 
+  border-radius: 0;
+  background: #fff;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  width:30%;
+  padding:20px 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+  box-shadow: 0px 10px 10px rgb(0 0 0 / 20%);
+  border: #afafaf 1px solid;
+} 
+button.contact-btn:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 100%;
+  content: '';
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  background: linear-gradient(to left,#de5f5c, #d99354);
+}
+
+button.contact-btn:hover {
+  color: #fff;
+  background: linear-gradient(to left,#de5f5c, #d99354);
+  padding:20px 0;
+  border:#b5b5b5 1px solid;
+  
+}
+button.contact-btn:hover:before {
+  background: #fff;
+}
+.input-error {
+  border: 2px solid red !important;
+}
+@media screen and (max-width: 1000px){
+  .contact-wrap__con {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .contact-wrap {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .contact-wrap__con__ttl {
+    margin-bottom: 40px;
+  }
+  .contact-wrap__con__input,
+  .contact-wrap__con__area {
+  width: 100%;
+  font-size:1rem;
+  height: 4rem;
+}
+.contact-wrap__con__ttl {
+  font-size: 1rem;
+  width: 100%;
+}
+.contact-wrap__con__ttl::after {
+  content: "必須";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 15%;
+}
+button.contact-btn {
+  width:40%;
+
+} 
+@media screen and (max-width:430px){
+  button.contact-btn {
+  width:100%;
+
+} 
+}
+

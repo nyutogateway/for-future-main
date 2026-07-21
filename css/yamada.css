@@ -1,0 +1,430 @@
+@charset "UTF-8";
+.top {
+  background-image: url("../img/破線.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1; /* 背景として */
+  width: 100vw;
+  height: 100%;
+  background-size: 100% auto;
+}
+.top-wrap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.top-title {
+  margin: 40px 0;
+}
+.top-title h3 {
+  font-size: clamp(1.5rem, 1.2391rem + 1.3043vw, 2.25rem);
+  font-weight: 700;
+}
+.__inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.top-wrap__img {
+  width: 100%;
+  height: 560px;
+  object-fit: cover;
+  margin: 0 auto;
+  padding-top: 100px;
+  position: relative;
+}
+.top-wrap__img img {
+  width: 135%;
+  height: 100%;
+  object-fit: cover;
+}
+.top-wrap__img__txt {
+  position: absolute;
+  top:80%;
+  left: 3%;
+  font-size: 24px;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 1% 1.5%;
+  line-height: 2;
+  font-weight: 700;
+  display: flex;
+}
+.top-wrap__img__txt h3 {
+  position: relative;
+  padding-right: 30px;
+  display: inline-block;
+  font-size: 40px;
+}
+.top-wrap__img__txt h3::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 3px; /* 線の太さ */
+  height: 50px; /* 線の長さ */
+  background-color: #de605c; /* 線の色 */
+  transform: translateY(-50%) rotate(40deg);
+}
+.top-wrap__img__txt p {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 500;
+  padding-left: 30px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.custom-hr {
+  border: none;
+  height: 1px;
+  background: #000; /* 好きな色に */
+  margin: 0px auto 80px auto; /* 上下の余白 */
+  width: 100%; /* 幅いっぱい。必要に応じて調整 */
+}
+.about-wrap__body__section__head {
+  font-size: 24px;
+  color: #de605c;
+  padding-bottom: 40px;
+  max-width: 800px;
+}
+.about-wrap__body__section__txt {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #000;
+  padding-bottom: 20px;
+  max-width: 800px;
+  letter-spacing: 0.1em;
+}
+.about-wrap {
+  position: relative;
+  background-color: #fff;
+}
+.about-wrap__title {
+  font-family: "Oswald", sans-serif;
+  position: absolute;
+  top: 20px;
+  right: -80px;
+  font-size: 200px;
+  font-weight: 500;
+  writing-mode: vertical-rl;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+  background: linear-gradient(to left, #de5f5c, #d99354);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1.5rem;
+  opacity: 0.8;
+}
+.section-title,
+.section-text {
+  position: relative;
+  z-index: 1;
+}
+.about-wrap__body__section__img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  margin: 0 auto;
+  padding: 40px 0 40px 0;
+  position: relative;
+}
+.about-wrap__body__section__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.about-wrap__body__section__profile {
+  background-color: #f8f8f8;
+  padding: 40px;
+  margin: 40px auto;
+}
+.about-wrap__body__section__profile__name {
+  padding-bottom: 20px;
+}
+.about-wrap__body__section__profile__name h4 {
+  font-size: 24px;
+  font-weight: 500;
+}
+.about-wrap__body__section__profile__com {
+  padding-bottom: 20px;
+}
+.about-wrap__body__section__profile__com h5 {
+  font-size: 20px;
+  font-weight: 500;
+}
+.about-wrap__body__section__profile__txt p {
+  font-size: 16px;
+  font-weight: 400;
+  padding-bottom: 20px;
+}
+.footer-wrap {
+  margin-top: 200px;
+  margin-bottom: 80px;
+  text-align: center;
+}
+.about-wrap__body__section__profile__url a {
+  color: #000;
+}
+@media screen and (max-width: 1280px) {
+  .top {
+    background-position: 70% 70%;
+  }
+  .__inner {
+    max-width: 764px;
+    margin: 0 auto;
+  }
+  .top-wrap__img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    margin: 0 auto;
+    padding-top: 60px;
+    position: relative;
+  }
+  .top-wrap__img__txt {
+    position: absolute;
+    top: 78%;
+    left: 3%;
+    font-size: 22px;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 1% 1.5%;
+    line-height: 2;
+    font-weight: 700;
+  }
+  .top-wrap__img__txt h3 {
+  position: relative;
+  padding-right: 30px;
+  display: inline-block;
+  font-size: 32px;
+}
+  .custom-hr {
+    border: none;
+    height: 1px;
+    background: #000; /* 好きな色に */
+    margin: 0px auto 40px auto; /* 上下の余白 */
+    width: 100%; /* 幅いっぱい。必要に応じて調整 */
+  }
+  .about-wrap__body__section__txt {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #000;
+    padding-bottom: 20px;
+    max-width: 650px;
+    letter-spacing: 0.1em;
+  }
+  .about-wrap__body__section__img {
+    width: 100%;
+    height: 400px;
+  }
+  .about-wrap__title {
+    font-size: 160px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .__inner {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .top-wrap__img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    margin: 0 auto;
+    padding-top: 100px;
+    position: relative;
+  }
+  .top-wrap__img__txt {
+    position: absolute;
+    top: 78%;
+    left: 3%;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 1% 1.5%;
+    line-height: 2;
+    font-weight: 700;
+  }
+  .custom-hr {
+    border: none;
+    height: 1px;
+    background: #000; /* 好きな色に */
+    margin: 0 auto 40px auto; /* 上下の余白 */
+    width: 80%; /* 幅いっぱい。必要に応じて調整 */
+  }
+  .about-wrap__body__section__txt {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #000;
+    padding-bottom: 20px;
+    width: 87%;
+    letter-spacing: 0.1em;
+  }
+  .about-wrap__body__section__head {
+    font-size: 20px;
+    color: #de605c;
+    padding-bottom: 20px;
+  }
+  .about-wrap__title {
+    font-size: 110px;
+    top: 20px;
+    right: clamp(-3.125rem, 1.875rem + -10vw, -1.875rem);
+    letter-spacing: 1rem;
+    z-index: 0;
+  }
+  .about-wrap__body__section__profile__name h4 {
+    font-size: 22px;
+    font-weight: 500;
+  }
+  .about-wrap__body__section__profile__com h5 {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .about-wrap__body__section__profile__txt p {
+    font-size: 15px;
+    font-weight: 400;
+    padding-bottom: 20px;
+  }
+  .about-wrap__body__section__img {
+    width: 100%;
+    height: 350px;
+    padding: 20px 0 20px 0;
+  }
+}
+@media screen and (max-width: 650px) {
+  .about-wrap__title {
+    display: none;
+  }
+  .about-wrap__body__section__txt {
+    width: 100%;
+  }
+  .about-wrap__body__section__head {
+    font-size: 18px;
+  }
+  .about-wrap__body__section__txt {
+    font-size: 14px;
+  }
+  .footer-wrap__img {
+    width: 60%;
+    object-fit: cover;
+    margin: 60px auto;
+  }
+  .footer-wrap__text {
+    text-align: center;
+    font-size: 12px;
+    padding-top: 0;
+    padding-bottom: 20px;
+  }
+   .top-wrap__img__txt {
+    position: absolute;
+    top: 85%;
+    left: 3%;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 1% 1.5%;
+    line-height: 2;
+    font-weight: 700;
+  }
+    .top-wrap__img__txt h3 {
+  position: relative;
+  padding-right: 30px;
+  display: inline-block;
+  font-size: 24px;
+}
+    .top-wrap__img__txt p {
+    font-size: 14px;
+}
+@media screen and (max-width: 430px) {
+  .top-title{
+    margin: 25px 0;
+  }
+  .top-title h3 {
+    font-size: 19px;
+  }
+  .top-wrap__img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    margin: 0 auto;
+    padding-top: 100px;
+    position: relative;
+  }
+  .top-wrap__img__txt {
+    position: absolute;
+    top:80%;
+    left: 3%;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 1% 1.5%;
+    line-height: 2;
+    font-weight: 700;
+  }
+  .about-wrap__body__section__profile__com h5 {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .about-wrap__body__section__profile__txt p {
+    font-size: 14px;
+    font-weight: 300;
+    padding-bottom: 20px;
+  }
+  .about-wrap__body__section__img {
+    width: 100%;
+    height: 250px;
+    padding: 20px 0 20px 0;
+  }
+  .top-wrap__img__txt h3 {
+    font-size: 18px;
+    padding-right:15px;
+    font-weight: 600;
+  }
+  .top-wrap__img__txt p {
+    font-size: 12px;
+    padding-left:15px;
+    font-weight:300;
+  }
+  .about-wrap__body__section__profile {
+    padding: 20px;
+  }
+  .top-wrap__img__txt h3::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 2px; /* 線の太さ */
+  height: 30px; /* 線の長さ */
+  background-color: #de605c; /* 線の色 */
+  transform: translateY(-50%) rotate(40deg);
+}
+}
+@media screen and (max-width: 350px) {
+  .top-title h3 {
+    font-size: 18px;
+  }
+  .top-wrap__img__txt {
+    position: absolute;
+    top:80%;
+    left: 1%;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 1% 1.5%;
+    line-height: 2;
+    font-weight: 700;
+  }
+   .top-wrap__img__txt h3 {
+    font-size: 16px;
+    padding-right:10px;
+    font-weight: 600;
+  }
+  .top-wrap__img__txt p {
+    font-size: 12px;
+    padding-left:10px;
+    font-weight:300;
+  }
+    .top-wrap__img__txt h3::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 2px; /* 線の太さ */
+  height: 25px; /* 線の長さ */
+  background-color: #de605c; /* 線の色 */
+  transform: translateY(-50%) rotate(30deg);
+}
+}
