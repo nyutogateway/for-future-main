@@ -620,7 +620,7 @@ body {
     white-space: nowrap;
   }
   .cover__line {
-    align-items: flex-start;
+    align-items: center;
   }
   .cover__foot {
     letter-spacing: 0.16em;
