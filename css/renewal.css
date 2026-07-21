@@ -1779,7 +1779,7 @@ img {
 }
 .section-mapimg {
   flex: none;
-  width: clamp(128px, 15vw, 210px);
+  width: clamp(210px, 24vw, 360px);
   height: auto;
   filter: drop-shadow(0 14px 30px rgba(222, 95, 92, 0.16));
 }
@@ -1819,7 +1819,7 @@ img {
     gap: clamp(14px, 3vw, 24px);
   }
   .section-mapimg {
-    width: clamp(150px, 42vw, 210px);
+    width: clamp(210px, 58vw, 320px);
   }
   .section-headtext .section-title {
     text-align: center;
