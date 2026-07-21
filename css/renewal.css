@@ -1665,3 +1665,21 @@ img {
   padding: 12px 0;
   gap: 9px;
 }
+
+/* =========================================================
+   32. SP：カバーのスライダーロゴが小さすぎるので拡大
+   ========================================================= */
+@media screen and (max-width: 600px) {
+  .cover__marquee-item {
+    width: clamp(120px, 33vw, 150px);
+    height: clamp(76px, 20vw, 92px);
+    margin-right: clamp(6px, 2.2vw, 16px);
+  }
+  .cover__marquee-track img {
+    height: auto;
+    max-width: 84%;
+    max-height: 72%;
+  }
+}
+
+/* §33 は撤回（flex:1 が吸収するため fit に無効、かつロゴが小さくなるため） */
