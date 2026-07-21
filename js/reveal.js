@@ -28,18 +28,24 @@
     }
     document.documentElement.classList.add("pt-loading");
 
-    // 読み込み完了でフェードアウト
+    // フェードアウト（画像の読み込み完了は待たない＝表示を速く）
+    let hidden = false;
     const hide = () => {
+      if (hidden) return;
+      hidden = true;
       overlay.classList.add("is-hidden");
       window.setTimeout(() => {
         document.documentElement.classList.remove("pt-loading");
       }, 700);
     };
-    if (document.readyState === "complete") {
-      window.setTimeout(hide, 250);
+    // DOM の準備ができたら即フェード（大きな画像を待たない）
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", () => window.setTimeout(hide, 120));
     } else {
-      window.addEventListener("load", () => window.setTimeout(hide, 250));
+      window.setTimeout(hide, 120);
     }
+    // 保険：どんなに遅くても必ず消す
+    window.setTimeout(hide, 1200);
 
     // 内部リンク（同一サイトの別ページ）でフェードアウトしてから遷移
     document.addEventListener("click", function (e) {

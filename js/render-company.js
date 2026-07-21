@@ -85,7 +85,7 @@
     }
     var figure = sec.image
       ? '<figure class="mag-figure"><img src="' + esc(sec.image) +
-        '" alt="' + esc(c.company + "｜" + sec.heading) + '" /></figure>'
+        '" alt="' + esc(c.company + "｜" + sec.heading) + '" loading="lazy" decoding="async" /></figure>'
       : "";
     sections +=
       '<section class="mag-section">' +
