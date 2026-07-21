@@ -242,6 +242,52 @@
     update();
   }
 
+  /* ---------------------------------------------------------
+     6. SP：画面中央にあるカードだけ「顔」表示、外れたら「ロゴ」に戻す
+     中央帯（rootMargin で上下を削った帯）に入ったカードへ .is-centered
+     を付与し、離れたら外す（＝中央から外れるとロゴへ戻る）。
+     --------------------------------------------------------- */
+  function setupCenterFlip() {
+    if (prefersReduced) return;
+    if (!("IntersectionObserver" in window) || !window.matchMedia) return;
+    var mq = window.matchMedia("(max-width: 600px)");
+
+    var io = null;
+    var setup = function () {
+      // いったん解除して作り直す（画面幅の変化に追従）
+      if (io) {
+        io.disconnect();
+        io = null;
+      }
+      var cards = document.querySelectorAll(".chapter .article-wrap__body__card");
+      if (!mq.matches) {
+        // SP以外では中央フリップ無効（クラスも掃除）
+        for (var j = 0; j < cards.length; j++) {
+          cards[j].classList.remove("is-centered");
+        }
+        return;
+      }
+      io = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) e.target.classList.add("is-centered");
+            else e.target.classList.remove("is-centered");
+          });
+        },
+        // 上下を 40% ずつ削った中央 20% の帯に入ったら「中央」とみなす
+        { root: null, rootMargin: "-40% 0px -40% 0px", threshold: 0 }
+      );
+      for (var i = 0; i < cards.length; i++) {
+        io.observe(cards[i]);
+      }
+    };
+
+    setup();
+    // 画面幅が閾値（600px）をまたいだら作り直す
+    if (mq.addEventListener) mq.addEventListener("change", setup);
+    else if (mq.addListener) mq.addListener(setup);
+  }
+
   /* --------------------------------------------------------- */
   function init() {
     setupNav();
@@ -250,6 +296,7 @@
     setupHeroFloat();
     setupHeaderLogo();
     setupScrollProgress();
+    setupCenterFlip();
   }
 
   if (document.readyState === "loading") {

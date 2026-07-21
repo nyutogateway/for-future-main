@@ -1418,37 +1418,37 @@ img {
 }
 
 /* =========================================================
-   24. SP：カードが画面に入ったら「ロゴ→人の顔（写真）」へ3Dフリップ
-   タッチ端末はホバーが無いため、reveal.js の .revealed をトリガに。
+   24. SP：画面中央にあるカードだけ「顔（写真）」、外れたら「ロゴ」に戻す
+   reveal.js が中央帯に入ったカードへ .is-centered を付与/除去（追従）。
    （PCのホバー挙動には影響しない＝SP幅のみ）
    ========================================================= */
 @media screen and (max-width: 600px) {
   .chapter .article-wrap__body__card__img {
     perspective: 900px;
   }
-  /* 表：人の顔。最初は伏せ（rotateY 90deg）、登場後にめくれて出る */
+  /* 表：人の顔。既定は伏せ（ロゴ表示）、中央に来ためくれて出る */
   .chapter .article-wrap__body__card .card-img-front {
     opacity: 0;
     transform: rotateY(90deg);
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     transition:
-      opacity 0.45s var(--ease-out) 0.25s,
-      transform 0.7s var(--ease-out) 0.25s;
+      opacity 0.4s var(--ease-out),
+      transform 0.6s var(--ease-out);
   }
-  .chapter .article-wrap__body__card.revealed .card-img-front {
+  .chapter .article-wrap__body__card.is-centered .card-img-front {
     opacity: 1;
     transform: rotateY(0deg);
   }
-  /* 裏：ロゴ。登場後にめくれて消える */
+  /* 裏：ロゴ。中央に来ためくれて消える（外れると戻る） */
   .chapter .article-wrap__body__card .card-img-back {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     transition:
-      opacity 0.4s var(--ease-out) 0.25s,
-      transform 0.6s var(--ease-out) 0.25s;
+      opacity 0.35s var(--ease-out),
+      transform 0.55s var(--ease-out);
   }
-  .chapter .article-wrap__body__card.revealed .card-img-back {
+  .chapter .article-wrap__body__card.is-centered .card-img-back {
     opacity: 0;
     transform: translate(-50%, -50%) rotateY(-90deg);
   }
