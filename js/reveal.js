@@ -274,8 +274,9 @@
             else e.target.classList.remove("is-centered");
           });
         },
-        // 上下を 40% ずつ削った中央 20% の帯に入ったら「中央」とみなす
-        { root: null, rootMargin: "-40% 0px -40% 0px", threshold: 0 }
+        // 上下を 44% ずつ削った中央 12% の帯 → 中央の1行（2枚）のみが対象
+        // （細すぎると行の切替時に一瞬“全ロゴ”になるため、1行分だけ確保できる幅に）
+        { root: null, rootMargin: "-44% 0px -44% 0px", threshold: 0 }
       );
       for (var i = 0; i < cards.length; i++) {
         io.observe(cards[i]);

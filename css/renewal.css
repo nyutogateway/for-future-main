@@ -1373,11 +1373,14 @@ img {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
     justify-content: center;
+    /* 画面端に張り付かないよう左右に余白 */
+    box-sizing: border-box;
+    padding: 0 16px;
   }
   .chapter .article-wrap__body__card {
-    width: calc(50% - 5px);
+    width: calc(50% - 6px);
     height: auto;
     margin: 0;
   }
