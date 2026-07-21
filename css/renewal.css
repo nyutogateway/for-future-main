@@ -619,10 +619,6 @@ body {
   .cover__bar span {
     white-space: nowrap;
   }
-  .cover__lines {
-    align-items: center;
-    text-align: center;
-  }
   .cover__line {
     align-items: flex-start;
   }
@@ -1312,7 +1308,11 @@ img {
     letter-spacing: 0.08em;
   }
   .cover__lines {
-    width: 100%;
+    /* 2行の — を縦に揃える：内容幅の左揃えブロックを中央配置 */
+    width: auto;
+    max-width: min(560px, 100%);
+    align-items: flex-start;
+    text-align: left;
     margin-top: 24px;
     gap: 11px;
   }
