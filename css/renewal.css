@@ -1763,3 +1763,34 @@ img {
     max-width: 150px;
   }
 }
+
+/* =========================================================
+   39. 25 STORIES 見出しを特集扉風に（和文リード＋番号レンジ）
+   ========================================================= */
+.article-wrap__head .section-lead {
+  margin-top: clamp(22px, 3vw, 34px);
+  font-family: "Noto Serif JP", serif;
+  font-weight: 600;
+  font-size: clamp(1.05rem, 0.9rem + 0.7vw, 1.5rem);
+  letter-spacing: 0.12em;
+  line-height: 1.7;
+  color: var(--ink);
+}
+.article-wrap__head .section-range {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: clamp(16px, 2.2vw, 24px);
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(0.72rem, 0.64rem + 0.3vw, 0.9rem);
+  letter-spacing: 0.34em;
+  text-indent: 0.34em;
+  color: var(--ink-soft);
+}
+.article-wrap__head .section-range::before,
+.article-wrap__head .section-range::after {
+  content: "";
+  width: clamp(24px, 4vw, 46px);
+  height: 1px;
+  background: var(--brand-grad);
+}
