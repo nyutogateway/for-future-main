@@ -1736,3 +1736,30 @@ img {
     width: 18px;
   }
 }
+
+/* =========================================================
+   38. スライダーのロゴ余白を削る（PC・SP共通）
+   固定幅ボックスの左右余白をなくし、ロゴは行の高さいっぱいに。
+   幅はロゴ実寸（auto）＝箱の余白ゼロ、間隔は margin のみ。
+   ========================================================= */
+.cover__marquee-item {
+  width: auto;
+  height: clamp(78px, 8.5vw, 116px);
+  margin-right: clamp(16px, 2.4vw, 40px);
+  justify-content: center;
+}
+.cover__marquee-track img {
+  height: 80%;
+  max-height: 80%;
+  width: auto;
+  max-width: 220px;
+}
+@media screen and (max-width: 600px) {
+  .cover__marquee-item {
+    height: clamp(88px, 23vw, 108px);
+    margin-right: clamp(14px, 4vw, 28px);
+  }
+  .cover__marquee-track img {
+    max-width: 150px;
+  }
+}
