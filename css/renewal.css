@@ -1362,3 +1362,53 @@ img {
   right: 0;
   transform: translateX(0);
 }
+
+/* =========================================================
+   23. SP：25 STORIES カードを「2列」に（小さい画面でも2列を維持）
+   1列だと縦に長くなりすぎるため、〜600px で常に2カラム。
+   ========================================================= */
+@media screen and (max-width: 600px) {
+  .chapter .article-wrap__body {
+    gap: 10px;
+    justify-content: center;
+  }
+  .chapter .article-wrap__body__card {
+    width: calc(50% - 5px);
+    height: auto;
+    margin: 0;
+  }
+  .chapter .article-wrap__body__card__img,
+  .chapter .card-coming {
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+  .chapter .article-wrap__body__card__under {
+    padding: 11px 11px 13px;
+  }
+  .chapter .article-wrap__body__card__kinds {
+    font-size: 15px;
+  }
+  .chapter .article-wrap__body__card__name {
+    font-size: 16px;
+    line-height: 1.2;
+  }
+  .chapter .article-wrap__body__card__job {
+    font-size: 10.5px;
+    line-height: 1.35;
+  }
+  .card-coming {
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+  }
+  /* 章見出しの間隔を詰めて上部の詰まりを緩和 */
+  .chapter__head {
+    margin-bottom: clamp(18px, 3.5vw, 28px);
+  }
+}
+
+/* --- SP：スクロール追従の左上ロゴは content と重なるため非表示 --- */
+@media screen and (max-width: 600px) {
+  .header-logo {
+    display: none !important;
+  }
+}
