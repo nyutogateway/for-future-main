@@ -1824,3 +1824,13 @@ img {
   width: clamp(180px, 34vw, 480px);
   height: 6px;
 }
+
+/* =========================================================
+   41. 25 STORIES 見出しを薄く（淡いグレー）
+   ========================================================= */
+.article-wrap__head .section-title {
+  color: #cccccc;
+}
+.article-wrap__head .section-kicker {
+  color: #c98f8c; /* CONTENTS も少し淡いコーラルに */
+}
