@@ -1542,3 +1542,20 @@ img {
   font-size: clamp(1.3rem, 1.05rem + 0.95vw, 2rem);
   margin-top: 26px;
 }
+
+/* =========================================================
+   27. ヒーローを上下のロゴスライダーで挟む（サンドイッチ）
+   ========================================================= */
+.cover__slider--top {
+  width: 100%;
+  padding-top: clamp(12px, 2.5vh, 30px);
+  -webkit-animation-delay: 0.15s;
+  animation-delay: 0.15s;
+}
+.cover__slider .cover__marquee-row {
+  width: 100%;
+}
+/* 中央ヒーローは上下スライダーの間で伸縮して中央寄せ */
+.cover__main {
+  flex: 1;
+}

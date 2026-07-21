@@ -86,11 +86,10 @@
      上段＝前半 / 下段＝後半。各段はシームレスループ用に2倍展開。
      --------------------------------------------------------- */
   (function buildLogoMarquee() {
-    var wrap = document.querySelector("[data-logo-marquee]");
-    if (!wrap) return;
-    var row1 = wrap.querySelector('[data-marquee-row="1"]');
-    var row2 = wrap.querySelector('[data-marquee-row="2"]');
-    if (!row1 || !row2) return;
+    // 行はどこに置いてもよいようグローバルに探す（ヒーローを上下スライダーで挟む構成に対応）
+    var row1 = document.querySelector('[data-marquee-row="1"]');
+    var row2 = document.querySelector('[data-marquee-row="2"]');
+    if (!row1 && !row2) return;
 
     var logos = data
       .slice()
@@ -119,7 +118,7 @@
         .join("");
     }
     // 2セット並べて無限ループ（後半は装飾クローン）
-    row1.innerHTML = links(top, false) + links(top, true);
-    row2.innerHTML = links(bottom, false) + links(bottom, true);
+    if (row1) row1.innerHTML = links(top, false) + links(top, true);
+    if (row2) row2.innerHTML = links(bottom, false) + links(bottom, true);
   })();
 })();
