@@ -47,6 +47,16 @@
     // 保険：どんなに遅くても必ず消す
     window.setTimeout(hide, 1200);
 
+    // ブラウザの「戻る/進む」(bfcache 復元) では load/DOMContentLoaded が
+    // 発火せず、幕が is-leaving のまま残って操作不能（＝固まる）になる。
+    // pageshow で確実に幕を解除する。
+    window.addEventListener("pageshow", function (e) {
+      hidden = true;
+      overlay.classList.remove("is-leaving");
+      overlay.classList.add("is-hidden");
+      document.documentElement.classList.remove("pt-loading");
+    });
+
     // 内部リンク（同一サイトの別ページ）でフェードアウトしてから遷移
     document.addEventListener("click", function (e) {
       const a = e.target.closest("a");
