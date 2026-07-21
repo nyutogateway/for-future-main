@@ -1522,3 +1522,23 @@ img {
     transform: translate(-50%, -50%) scale(0.92);
   }
 }
+
+/* =========================================================
+   26. 25 STORIES 見出しを大きく
+   ========================================================= */
+.article-wrap__head .section-kicker {
+  font-size: clamp(0.85rem, 0.7rem + 0.6vw, 1.2rem);
+  margin-bottom: 24px;
+}
+.article-wrap__head .section-title {
+  font-size: clamp(3.4rem, 2rem + 6.2vw, 6.8rem);
+}
+.article-wrap__head .section-title::after {
+  width: clamp(180px, 26vw, 340px);
+  height: 5px;
+  margin-top: 32px;
+}
+.article-wrap__head .section-sub {
+  font-size: clamp(1.3rem, 1.05rem + 0.95vw, 2rem);
+  margin-top: 26px;
+}
