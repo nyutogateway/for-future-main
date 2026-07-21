@@ -930,7 +930,7 @@ body {
    ========================================================= */
 /* 背景に、旧トップのグラデ曲線（破線.svg）を「上から下」に流す */
 #h-nav {
-  background-color: rgba(255, 255, 255, 0.985);
+  background-color: #ffffff;
   overflow: hidden;
 }
 #h-nav::before {
@@ -950,7 +950,7 @@ body {
 }
 #h-nav__list {
   position: absolute;
-  top: 50%;
+  top: 44%;
   left: 50%;
   z-index: 2;
   transform: translate(-50%, -50%);
