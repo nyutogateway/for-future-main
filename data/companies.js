@@ -1,5 +1,5 @@
 /* =========================================================
-   FOR FUTURE 25 — 企業データ（唯一の情報源 / Single Source of Truth）
+   FOR FUTURE 30 — 企業データ（唯一の情報源 / Single Source of Truth）
    file:// でも動くよう JS で global に載せる（fetch不要）。
    将来 JSON 化する場合は window.FF_COMPANIES の配列部分をそのまま流用可。
    企業追加は、このファイルに1ブロック足すだけ。

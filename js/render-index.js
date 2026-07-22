@@ -1,5 +1,5 @@
 /* =========================================================
-   FOR FUTURE 25 — 一覧（25 STORIES）を5章立てで描画
+   FOR FUTURE 30 — 一覧（30 STORIES）を5章立てで描画
    window.FF_COMPANIES から実在社を order 順に配置し、25枠を
    CHAPTER 01〜05（各5枠）にグループ化。未定枠は COMING SOON。
    reveal.js より前に読み込むこと。
@@ -10,7 +10,7 @@
   var root = document.querySelector("[data-stories]");
   if (!root) return;
 
-  var TOTAL = 25;
+  var TOTAL = 30;
   var PER_CHAPTER = 5;
   var data = window.FF_COMPANIES || [];
 

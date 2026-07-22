@@ -1,5 +1,5 @@
 /* =========================================================
-   FOR FUTURE 25 — 企業詳細の描画（データ駆動テンプレ）
+   FOR FUTURE 30 — 企業詳細の描画（データ駆動テンプレ）
    company.html?id=<id> を読み、window.FF_COMPANIES から該当社を
    誌面フォーマット（interview.css）で描画する。
    reveal.js より前に読み込むこと（.mag-section を先に生成するため）。
@@ -7,7 +7,7 @@
 (function () {
   "use strict";
 
-  var TOTAL = 25; // 「01 ／ 25」の分母
+  var TOTAL = 30; // 「01 ／ 25」の分母
   var data = window.FF_COMPANIES || [];
   var root = document.querySelector("[data-company]");
   if (!root) return;
@@ -22,22 +22,22 @@
     root.innerHTML =
       '<section class="mag-notfound">' +
       "<p>お探しの記事が見つかりませんでした。</p>" +
-      '<a class="mag-back" href="index.html#article">← BACK TO 25 STORIES</a>' +
+      '<a class="mag-back" href="index.html#article">← BACK TO 30 STORIES</a>' +
       "</section>";
-    document.title = "記事が見つかりません ｜ FOR FUTURE 25";
+    document.title = "記事が見つかりません ｜ FOR FUTURE 30";
     return;
   }
 
   var pad = function (n) { return (n < 10 ? "0" : "") + n; };
 
   /* ---- <head> のタイトル / メタ / OGP ---- */
-  document.title = c.nameJa + " ｜ " + c.company + " ｜ FOR FUTURE 25";
+  document.title = c.nameJa + " ｜ " + c.company + " ｜ FOR FUTURE 30";
   var desc =
     c.metaDesc ||
-    c.tagline + "──" + c.company + "、" + c.nameJa + "の挑戦を綴る特集。FOR FUTURE 25";
+    c.tagline + "──" + c.company + "、" + c.nameJa + "の挑戦を綴る特集。FOR FUTURE 30";
   setMeta("name", "description", desc);
   setMeta("property", "og:title", document.title);
-  setMeta("property", "og:description", c.tagline + "。九州から選ばれた25の物語。");
+  setMeta("property", "og:description", c.tagline + "。九州から選ばれた30の物語。");
   setMeta("property", "og:image", c.ogImage || c.hero);
   setMeta("property", "og:type", "article");
 
@@ -55,7 +55,7 @@
   var cover =
     '<section class="mag-cover" id="top">' +
       '<div class="mag-cover__text">' +
-        '<p class="mag-cover__kicker"><img class="mag-cover__logo" src="img/forlogo.png" alt="FOR FUTURE 25" /></p>' +
+        '<p class="mag-cover__kicker"><img class="mag-cover__logo" src="img/forlogo.png" alt="FOR FUTURE 30" /></p>' +
         '<p class="mag-cover__tagline">' + esc(c.tagline) + "</p>" +
         '<h1 class="mag-cover__name">' + esc(c.nameRoman) +
           "<span>" + esc(c.nameJa) + "</span></h1>" +
@@ -98,7 +98,7 @@
   var article =
     '<article class="mag-article"><div class="mag-article__inner">' +
       sections +
-      '<a class="mag-back" href="index.html#article">← BACK TO 25 STORIES</a>' +
+      '<a class="mag-back" href="index.html#article">← BACK TO 30 STORIES</a>' +
     "</div></article>";
 
   root.innerHTML = cover + article;

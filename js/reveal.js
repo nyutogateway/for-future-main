@@ -1,5 +1,5 @@
 /* =========================================================
-   FOR FUTURE 25 — Renewal interactions
+   FOR FUTURE 30 — Renewal interactions
    1) スクロール連動の登場（IntersectionObserver・スタッガー）
    2) トップ画像の浮遊アニメ発動
    3) ページ遷移（読み込み時フェードイン / 内部リンクでフェードアウト）
@@ -23,7 +23,7 @@
       overlay = document.createElement("div");
       overlay.className = "page-transition";
       overlay.innerHTML =
-        '<span class="page-transition__mark">FOR FUTURE 25</span>';
+        '<span class="page-transition__mark">FOR FUTURE 30</span>';
       document.body.appendChild(overlay);
     }
     document.documentElement.classList.add("pt-loading");
@@ -191,7 +191,7 @@
     var items = [
       { href: "index.html", en: "TOP", jp: "トップ" },
       { href: "index.html#about", en: "ABOUT", jp: "このサイトについて" },
-      { href: "index.html#article", en: "STORIES", jp: "25の物語" },
+      { href: "index.html#article", en: "STORIES", jp: "30の物語" },
       { href: "policy.html", en: "PRIVACY POLICY", jp: "プライバシーポリシー" },
       { href: "contact.html", en: "CONTACT", jp: "お問い合わせ" }
     ];
@@ -209,8 +209,8 @@
 
     list.innerHTML =
       ul +
-      '<p class="h-nav__tagline">九州から、未来をつくる25のストーリー。</p>' +
-      '<p class="h-nav__copy">© FOR FUTURE 25</p>';
+      '<p class="h-nav__tagline">九州から、未来をつくる30のストーリー。</p>' +
+      '<p class="h-nav__copy">© FOR FUTURE 30</p>';
 
     // メニュー内リンクで閉じる（header.js の再バインド）
     var closeMenu = function () {
