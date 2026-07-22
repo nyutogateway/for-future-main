@@ -1766,75 +1766,51 @@ img {
 
 
 /* =========================================================
-   39. 25 STORIES 見出し：巨大な「25」を主役に
+   39. 25 STORIES 見出し：長崎・佐賀の地図を大きく背景に透かし
    ========================================================= */
-.article-wrap__head--big25 {
+.article-wrap__head--mapbg {
+  position: relative;
+  z-index: 0;
   text-align: center;
+  padding: clamp(34px, 5vw, 80px) 0;
 }
-.article-wrap__head--big25 .section-kicker {
-  display: inline-block;
-  margin-bottom: clamp(6px, 1.2vw, 14px);
+.section-mapbg {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(92%, 780px);
+  height: auto;
+  z-index: -1;
+  opacity: 0.12;
+  pointer-events: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
-.big25 {
-  display: flex;
+.article-wrap__head--mapbg .section-kicker,
+.article-wrap__head--mapbg .section-title,
+.article-wrap__head--mapbg .section-place {
+  position: relative;
+  z-index: 1;
+}
+.article-wrap__head--mapbg .section-place {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: clamp(14px, 2.4vw, 40px);
-}
-.big25__num {
+  gap: 10px;
+  margin-top: clamp(16px, 2.2vw, 24px);
   font-family: "Oswald", sans-serif;
-  font-weight: 500;
-  font-size: clamp(6.5rem, 24vw, 19rem);
-  line-height: 0.78;
-  letter-spacing: -0.02em;
-  background: var(--brand-grad);
-  background-size: 160% 160%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  -webkit-animation: gradShift 9s ease infinite;
-  animation: gradShift 9s ease infinite;
-}
-.big25__side {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: clamp(6px, 1vw, 12px);
-}
-.big25__stories {
-  font-family: "Oswald", sans-serif;
-  font-weight: 500;
-  font-size: clamp(1.5rem, 4.4vw, 3.4rem);
-  letter-spacing: 0.08em;
-  line-height: 1;
-  color: var(--ink);
-}
-.big25__stories::after {
-  content: "";
-  display: block;
-  width: clamp(70px, 9vw, 130px);
-  height: 4px;
-  margin-top: clamp(10px, 1.4vw, 16px);
-  border-radius: 2px;
-  background: var(--brand-grad);
-}
-.big25__ja {
-  font-family: "Noto Serif JP", serif;
-  font-weight: 600;
-  font-size: clamp(0.9rem, 1rem + 0.5vw, 1.35rem);
-  letter-spacing: 0.16em;
+  font-size: clamp(0.72rem, 0.64rem + 0.3vw, 0.92rem);
+  letter-spacing: 0.34em;
+  text-indent: 0.34em;
   color: var(--ink-soft);
 }
-@media screen and (max-width: 560px) {
-  .big25 {
-    gap: clamp(10px, 3vw, 20px);
-  }
-  .big25__side {
-    gap: 6px;
-  }
+.section-place__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--brand-grad);
+  box-shadow: 0 0 0 4px rgba(222, 95, 92, 0.14);
 }
-
 /* =========================================================
    40. 25 STORIES：カードが3列入るようコンテナを広げる
    （index.css が ~1280px 以下で .__inner を 800px に絞っていた）
