@@ -169,10 +169,13 @@
      --------------------------------------------------------- */
   function setupHeaderLogo() {
     var logo = document.querySelector(".header-logo");
-    if (!logo) return;
+    var header = document.querySelector(".header");
+    if (!logo && !header) return;
     var onScroll = function () {
-      if (window.pageYOffset > 220) logo.classList.add("is-visible");
-      else logo.classList.remove("is-visible");
+      var past = window.pageYOffset > 220;
+      if (logo) logo.classList.toggle("is-visible", past);
+      // ヘッダー帯の薄い白背景も同じタイミングで途中から出す
+      if (header) header.classList.toggle("is-scrolled", past);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();

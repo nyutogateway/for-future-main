@@ -1846,3 +1846,28 @@ img {
     display: none;
   }
 }
+
+/* =========================================================
+   43. ヘッダー帯：スクロールで途中から薄い白背景をフェードイン
+   （ロゴが左上に出るのと同じタイミング＝.header.is-scrolled）
+   ロゴ(9998)・ハンバーガー(9999)より下、本文より上に敷く。
+   ========================================================= */
+.header::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: clamp(58px, 8vh, 84px);
+  background: rgba(255, 255, 255, 0.72);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  transition: opacity 0.45s var(--ease-out);
+  pointer-events: none;
+  z-index: 900;
+}
+.header.is-scrolled::before {
+  opacity: 1;
+}
