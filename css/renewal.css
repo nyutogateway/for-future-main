@@ -1766,91 +1766,71 @@ img {
 
 
 /* =========================================================
-   39. 25 STORIES 見出し：長崎・佐賀を独立シルエットで横並び
+   39. 25 STORIES 見出し：巨大な「25」を主役に
    ========================================================= */
-.article-wrap__head--map {
+.article-wrap__head--big25 {
+  text-align: center;
+}
+.article-wrap__head--big25 .section-kicker {
+  display: inline-block;
+  margin-bottom: clamp(6px, 1.2vw, 14px);
+}
+.big25 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(28px, 6vw, 88px);
-  text-align: left;
-  flex-wrap: wrap;
+  gap: clamp(14px, 2.4vw, 40px);
 }
-.section-headtext .section-kicker {
-  display: inline-block;
+.big25__num {
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  font-size: clamp(6.5rem, 24vw, 19rem);
+  line-height: 0.78;
+  letter-spacing: -0.02em;
+  background: var(--brand-grad);
+  background-size: 160% 160%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  -webkit-animation: gradShift 9s ease infinite;
+  animation: gradShift 9s ease infinite;
 }
-.section-headtext .section-title {
-  text-align: left;
-}
-.section-headtext .section-title::after {
-  margin-left: 0;
-  margin-right: auto;
-}
-/* 2県を横並び（独立シルエット） */
-.section-maps {
+.big25__side {
   display: flex;
-  align-items: flex-end;
-  gap: clamp(22px, 3.4vw, 52px);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(6px, 1vw, 12px);
 }
-.section-mapitem {
-  margin: 0;
-  text-align: center;
-}
-.section-mapitem img {
-  height: clamp(120px, 15vw, 200px);
-  width: auto;
-  display: block;
-  filter: drop-shadow(0 12px 26px rgba(222, 95, 92, 0.18));
-}
-.section-mapitem figcaption {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: clamp(10px, 1.4vw, 16px);
-  font-family: "Noto Serif JP", serif;
-  font-weight: 600;
-  font-size: clamp(0.92rem, 0.82rem + 0.4vw, 1.15rem);
-  letter-spacing: 0.16em;
+.big25__stories {
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.5rem, 4.4vw, 3.4rem);
+  letter-spacing: 0.08em;
+  line-height: 1;
   color: var(--ink);
 }
-.section-place__dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
+.big25__stories::after {
+  content: "";
+  display: block;
+  width: clamp(70px, 9vw, 130px);
+  height: 4px;
+  margin-top: clamp(10px, 1.4vw, 16px);
+  border-radius: 2px;
   background: var(--brand-grad);
-  box-shadow: 0 0 0 4px rgba(222, 95, 92, 0.14);
 }
-/* モバイルは縦積み・中央寄せ（マップは横並びのまま） */
-@media screen and (max-width: 640px) {
-  .article-wrap__head--map {
-    flex-direction: column;
-    text-align: center;
-    gap: clamp(18px, 4vw, 28px);
-  }
-  .section-headtext .section-title {
-    text-align: center;
-  }
-  .section-headtext .section-title::after {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .section-mapitem img {
-    height: clamp(112px, 30vw, 168px);
-  }
+.big25__ja {
+  font-family: "Noto Serif JP", serif;
+  font-weight: 600;
+  font-size: clamp(0.9rem, 1rem + 0.5vw, 1.35rem);
+  letter-spacing: 0.16em;
+  color: var(--ink-soft);
 }
-
-/* §39 追補：長崎を大きく・佐賀を小さく（実面積に近いバランス／独立2県） */
-.section-maps .section-mapitem:nth-child(1) img {
-  height: clamp(138px, 17vw, 224px);
-}
-.section-maps .section-mapitem:nth-child(2) img {
-  height: clamp(104px, 13vw, 168px);
-}
-@media screen and (max-width: 640px) {
-  .section-maps .section-mapitem:nth-child(1) img {
-    height: clamp(120px, 33vw, 184px);
+@media screen and (max-width: 560px) {
+  .big25 {
+    gap: clamp(10px, 3vw, 20px);
   }
-  .section-maps .section-mapitem:nth-child(2) img {
-    height: clamp(92px, 25vw, 140px);
+  .big25__side {
+    gap: 6px;
   }
 }
