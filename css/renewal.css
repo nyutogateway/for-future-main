@@ -850,10 +850,10 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: clamp(20px, 2.6vw, 34px);
+  gap: clamp(16px, 2.2vw, 30px);
 }
 .chapter .article-wrap__body__card {
-  width: clamp(264px, 29vw, 300px);
+  width: clamp(206px, 25.5vw, 300px);
   height: 372px;
   margin: 0;
 }
