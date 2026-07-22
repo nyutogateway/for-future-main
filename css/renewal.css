@@ -1818,3 +1818,31 @@ img {
 .article .article-wrap.__inner {
   max-width: 1120px;
 }
+
+/* =========================================================
+   41. 記事ページのセクション見出しにコーラルの縦バー・アクセント
+   ========================================================= */
+.mag-section__head {
+  position: relative;
+  padding-left: clamp(18px, 2.2vw, 30px);
+}
+.mag-section__head::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.16em;
+  bottom: 0.16em;
+  width: 5px;
+  border-radius: 3px;
+  background: var(--brand-grad);
+}
+
+/* =========================================================
+   42. SP：記事カバー写真が上に回り込むレイアウトでは
+   左端の「綴じコーラル帯」を出さない（写真上部に縦線が乗って見えるため）
+   ========================================================= */
+@media screen and (max-width: 900px) {
+  .mag-cover__photo::before {
+    display: none;
+  }
+}
