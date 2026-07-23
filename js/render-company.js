@@ -55,7 +55,7 @@
   var cover =
     '<section class="mag-cover" id="top">' +
       '<div class="mag-cover__text">' +
-        '<p class="mag-cover__kicker"><img class="mag-cover__logo" src="img/forlogo.png" alt="FOR FUTURE 30" /></p>' +
+        '<p class="mag-cover__kicker"><img class="mag-cover__logo" src="img/logononum.svg" alt="FOR FUTURE 30" /></p>' +
         '<p class="mag-cover__tagline">' + esc(c.tagline) + "</p>" +
         '<h1 class="mag-cover__name">' + esc(c.nameRoman) +
           "<span>" + esc(c.nameJa) + "</span></h1>" +
