@@ -1300,7 +1300,7 @@ img {
     padding: clamp(20px, 5vw, 32px) 18px clamp(18px, 4vw, 28px);
   }
   .cover__logo {
-    width: min(84vw, 320px);
+    width: min(94vw, 560px);
   }
   .cover__rule {
     margin: 24px 0 20px;
@@ -1605,8 +1605,9 @@ img {
 .cover__main {
   padding: clamp(2px, 0.8vh, 12px) 0;
 }
+/* SP・PC ともに画面幅に対して大きく（はみ出さないよう vw 連動） */
 .cover__logo {
-  width: clamp(250px, 46vw, 640px);
+  width: min(92vw, 1100px);
 }
 .cover__rule {
   margin: clamp(8px, 1.4vh, 18px) 0 clamp(6px, 1vh, 12px);
@@ -1631,7 +1632,7 @@ img {
   min-height: 100dvh; /* 対応ブラウザでは可視域にぴったり */
 }
 .cover__logo {
-  width: clamp(200px, 40vw, 620px);
+  width: min(56vw, 670px);
 }
 .cover__marquee-track img {
   height: clamp(38px, 5.5vw, 80px);
@@ -1654,14 +1655,15 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 10px 0;
+  /* 下に余白を持たせて中身をやや上寄せに */
+  padding: 10px 0 clamp(28px, 6vh, 72px);
 }
 .cover__rule {
-  margin: 16px 0 12px;
+  margin: 30px 0 24px;
 }
 .cover__lines {
-  margin-top: 14px;
-  gap: 9px;
+  margin-top: 26px;
+  gap: 14px;
 }
 .cover__companies {
   padding: 12px 0;
@@ -1721,7 +1723,7 @@ img {
    ========================================================= */
 @media screen and (max-width: 600px) {
   .cover__logo {
-    width: min(74vw, 340px);
+    width: min(84vw, 440px);
   }
 }
 
