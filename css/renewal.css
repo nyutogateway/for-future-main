@@ -1606,7 +1606,7 @@ img {
   padding: clamp(2px, 0.8vh, 12px) 0;
 }
 .cover__logo {
-  width: clamp(210px, 38vw, 520px);
+  width: clamp(250px, 46vw, 640px);
 }
 .cover__rule {
   margin: clamp(8px, 1.4vh, 18px) 0 clamp(6px, 1vh, 12px);
