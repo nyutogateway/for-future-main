@@ -17,9 +17,9 @@ window.FF_COMPANIES = [
     url: "https://www.nabt.co.jp/",
     tagline: "続けることで才能を越えられる",
     hero: "img/nishitetsu/bumon.jpg",
-    card: "img/nishitetsu/top.jpg",
+    card: "img/nishitetsu/top-card.jpg",
     logo: "img/nishitetsu/nishitetsulogo.png",
-    ogImage: "img/nishitetsu/top.jpg",
+    ogImage: "img/nishitetsu/top-card.jpg",
     sections: [
       {
         heading: "九州随一の技術力を誇る車体修理・改造会社",
@@ -75,9 +75,9 @@ window.FF_COMPANIES = [
     url: "https://kamiyama-k.co.jp/",
     tagline: "素直であれ",
     hero: "img/kamiyama/top.jpg",
-    card: "img/kamiyama/top.jpg",
+    card: "img/kamiyama/top-card.jpg",
     logo: "img/kamiyama/kamiyamalogo.png",
-    ogImage: "img/kamiyama/top.jpg",
+    ogImage: "img/kamiyama/top-card.jpg",
     sections: [
       {
         heading: "波佐見町で輝き続ける「誠意×創意×熱意」",
@@ -138,9 +138,9 @@ window.FF_COMPANIES = [
     url: "https://nk-wealth-management.co.jp/",
     tagline: "一つ、毎日続けること",
     hero: "img/NK/NKtop.jpg",
-    card: "img/NK/NKtop.jpg",
+    card: "img/NK/NKtop-card.jpg",
     logo: "img/NK/NKlogo.webp",
-    ogImage: "img/NK/NKtop.jpg",
+    ogImage: "img/NK/NKtop-card.jpg",
     sections: [
       {
         heading: "少数精鋭の金融専門集団",
@@ -196,9 +196,9 @@ window.FF_COMPANIES = [
     url: "https://saga-springs.co.jp/",
     tagline: "スポーツは筋書きのないドラマだ",
     hero: "img/SAGA/sagatop.jpg",
-    card: "img/SAGA/sagatop.jpg",
+    card: "img/SAGA/sagatop-card.jpg",
     logo: "img/SAGA/sagalogo.png",
-    ogImage: "img/SAGA/sagatop.jpg",
+    ogImage: "img/SAGA/sagatop-card.jpg",
     sections: [
       {
         heading: "感動を生み出すバレーボールチーム",
@@ -255,9 +255,9 @@ window.FF_COMPANIES = [
     url: "https://www.kyowakk.co.jp/",
     tagline: "柔軟に進化し続けよ",
     hero: "img/kyouwa/kyouwatop.jpg",
-    card: "img/kyouwa/kyouwatop.jpg",
+    card: "img/kyouwa/kyouwatop-card.jpg",
     logo: "img/kyouwa/kyouwalogo.svg",
-    ogImage: "img/kyouwa/kyouwatop.jpg",
+    ogImage: "img/kyouwa/kyouwatop-card.jpg",
     sections: [
       {
         heading: "佐世保から脈打つ社会の血管",
@@ -315,9 +315,9 @@ window.FF_COMPANIES = [
     url: "https://tsuzumi.co.jp/",
     tagline: "歩き続けろ",
     hero: "img/tudumi/tudumitop.jpg",
-    card: "img/tudumi/tudumitop.jpg",
+    card: "img/tudumi/tudumitop-card.jpg",
     logo: "img/tudumi/tudumilogo.svg",
-    ogImage: "img/tudumi/tudumitop.jpg",
+    ogImage: "img/tudumi/tudumitop-card.jpg",
     sections: [
       {
         heading: "日本人の心を長崎から展開する企業",
@@ -752,7 +752,7 @@ window.FF_COMPANIES = [
           "創業の原点は、ただテクノロジーを売ることではなかった。神戸生まれで幼少期から「人の役に立つ技術」に関心を持っていた創業者の菅谷氏は、農学部在学中の2000年、佐賀大学を休学して株式会社オプティムを起業した。当時は常時接続のインターネットがまだ一般的でない時代。請求書や見積書の書き方さえわからない中、鳳雛塾という佐賀県の起業家ネットワークや佐賀の政財界と協力し、一歩ずつ事業基盤を築いていったという。佐賀の豊かな自然に触れ、農業こそが「人類にとってインパクトがあり、人の役に立つ技術」と信じてきた菅谷氏は、地元の自然や課題と向き合う中で、「テクノロジーとの融合で豊かな地域社会をつくる」というミッションを刻み込んでいった。",
           "菅谷氏と同じ熱意をもってオプティムで活躍する人間も多い。今回インタビューに答えてくれた村井は佐賀県唐津市の出身。ふとしたきっかけで、地元でスマート農業に取り組む会社としてオプティムの名を耳にした彼は、その後のニュースで地元佐賀大学内に研究拠点が設置されたことを受け、新たな可能性への好奇心に突き動かされて中途入社を決意したという。今では佐賀本店にてオフィス長を務め、さらには県内の大学を中心に産学連携の旗振りを担っている。"
         ],
-        image: "img/optim/s2.png"
+        image: "img/optim/s2.jpg"
       },
       {
         heading: "徹底したエンドユーザー目線",
@@ -968,10 +968,10 @@ window.FF_COMPANIES = [
     company: "株式会社BeLIVE",
     url: "https://www.sasebo.hunibas.com/",
     tagline: "面白い大人に出会い続けよう",
-    hero: "img/belive/hero.png",
-    card: "img/belive/card.png",
+    hero: "img/belive/hero.jpg",
+    card: "img/belive/card.jpg",
     logo: "img/belive/logo.png",
-    ogImage: "img/belive/card.png",
+    ogImage: "img/belive/card.jpg",
     sections: [
       {
         heading: "未来のワクワクを育む会社",
@@ -1028,17 +1028,17 @@ window.FF_COMPANIES = [
     company: "山口産業株式会社",
     url: "https://membry.jp/",
     tagline: "やりがいは深い挑戦のなかで生まれる",
-    hero: "img/membry/hero.png",
-    card: "img/membry/card.png",
+    hero: "img/membry/hero.jpg",
+    card: "img/membry/card.jpg",
     logo: "img/membry/logo.png",
-    ogImage: "img/membry/card.png",
+    ogImage: "img/membry/card.jpg",
     sections: [
       {
         heading: "佐賀にある「第四の建材」のパイオニア",
         body: [
           "佐賀の平野の一角に、鋼の骨と白い膜で編まれた巨躯が鎮座する。山口産業株式会社。膜構造建築を生業とする、少し風変わりな製造屋だ。かつて炭鉱資材の縫製工場として産声を上げ、今や万博のパビリオンや養殖施設の構築を手がける“第四の建材”のパイオニアとなった。代表取締役の山口篤樹は、会社が刻み続けてきた五十余年の歳月を背負いながらも、背筋を伸ばす。柔らかな語り口の奥に、「現状維持は衰退」という揺るぎない信条を秘めるリーダーである。"
         ],
-        image: "img/membry/s1.png"
+        image: "img/membry/s1.jpg"
       },
       {
         heading: "「できないと言わない会社」であるために",
@@ -1056,7 +1056,7 @@ window.FF_COMPANIES = [
           "もちろん地元佐賀との連携も欠かさない。「MEMBRANELAB.」プロジェクトでは、地域社会との連携を深め、佐賀大学などとの協業による物流パレットを活用した避難小屋「HütTENT」の開発など、地域共創から新しい価値を生み出している。",
           "足下では農業・海洋分野への進出が加速する。膜は透光性と耐久性に優れており、陸上養殖施設や倉庫、牛舎、堆肥舎などに最適だ。さらに2025年大阪・関西万博では複数のパビリオンや膜屋根など総面積20,000平方メートルを超える膜構造を施工し、ここで培った技術や国際ネットワークを海外展開の起爆剤に据える。"
         ],
-        image: "img/membry/s3.png"
+        image: "img/membry/s3.jpg"
       },
       {
         heading: "戻る場所であり続けたい",
@@ -1098,7 +1098,7 @@ window.FF_COMPANIES = [
           "長崎の海風が肌をくすぐる町に、若き経営者が切り拓いた新たなビジネスの地平がある。Webサイト制作、マーケティング支援、そして民泊代行・開業支援という三本柱を掲げるEnagic株式会社は、代表取締役・大友拓海がわずか数年で築き上げた“地方発マーケティングカンパニー”である。",
           "創業は2024年。小規模体制ながら、長崎・福岡を拠点にした事業展開を鮮やかに見せている新進気鋭の企業だ。"
         ],
-        image: "img/enagic/s1.png"
+        image: "img/enagic/s1.jpg"
       },
       {
         heading: "「後悔しない生き方を遂げたい」",
@@ -1116,7 +1116,7 @@ window.FF_COMPANIES = [
           "Enagicの主軸となるのは三つの事業だ。まずはWebサイト制作事業。長崎や福岡など特定エリアに特化したSEO対策を武器に上位表示を実現し、問い合わせ数増加へとつなげている。営業・マーケティング支援事業では、膨大なデータを学習するAIを活用し、顧客の潜在ニーズを炙り出すキャッチコピー作成やターゲット層の開拓を伴走型でフォローする。そして民泊運営・代行事業では、大友自身が北海道でレーティング5.0評価の一棟貸し宿を運営しているノウハウをベースに、インバウンドの需要を捉え、地方で外貨を稼ぐことにチャレンジしている。",
           "これら三本柱はいずれも「地方で稼ぎ、雇用を創出し、経済システムをつくる」という大友の描く“地方だからこそ面白い”の実現に向けた戦略的な布石である。特にノーコードツールの導入は、プログラミング不要でデザイナーの感性を最大限に活かしつつ、リニューアルコストを抑制する仕組みとして地方企業の内製化を後押ししている。こうしたデジタルと地域密着の掛け合わせは、顧客である長崎市内のハウスメーカーで検索結果1位を獲得し、売上向上に直接寄与する成果を生んだ。"
         ],
-        image: "img/enagic/s3.png"
+        image: "img/enagic/s3.jpg"
       },
       {
         heading: "欲は、責任になる",
@@ -1177,7 +1177,7 @@ window.FF_COMPANIES = [
           "近年相次ぐ大学の募集停止について、橋本は経営者としてこう提言する。「日本の少子化を嘆くのはまだ早いです。高校や中学など地域の児童・生徒数に依存する教育機関であれば少子化の影響は避けられませんが、大学は違います。学生は地域や国を越えて募集することが可能です。実際、世界的にトップクラスのハーバード大学ですら各国で積極的に学生募集を行っている現状がある。大学の魅力に気づいてもらうために、自分たちも、その足で発信を続けていく必要があります」",
           "オンライン教育や生成AIの活用にも積極的だ。離島在住の学生が2年次を地元でオンライン履修できる仕組みや、他の短大と共同でオンライン授業のプログラムを開発し横断的な学びを進めたり、大学への3年次編入の取組も進む。さらに、近未来におけるAIと対話し個別最適化された学びの到来を見据え、「教員不要時代」への備えも怠らない。集い議論し合う「ワークショップ型学び」が、対面教育の新たな意義になるとの橋本の眼力は、キャンパスとまちとをつなぐ教育の未来像を鮮やかに描き出す。"
         ],
-        image: "img/njac/s3.png"
+        image: "img/njac/s3.jpg"
       },
       {
         heading: "他者のために何を生み出せるか",
@@ -1185,7 +1185,7 @@ window.FF_COMPANIES = [
           "これから鶴鳴学園が見据えるのは、多様な才能を交錯させる国際実践型の教育環境だ。海外からの留学生誘致や、前述のオンライン連携による国際就職フェアの開催を通じて、長崎企業と優秀人材を結びつける構想が進行中だ。学園のなかで、AIと教員が共にファシリテーターとなるワークショップ型の未来像を描く橋本。多様な人々に学びの門戸を開き、西洋と日本文化の架け橋となり、人としての品格と美しさを重んじる理念は、130年を経てなお、校訓として息づく。橋本は「創立者が示した多様性・国際性・品格は、今こそ再評価されるべき価値です。学びとは、他者のために何を生み出せるかを常に問い続けることですから」",
           "長崎のまちと歴史に根ざしながら、世界へと羽ばたく教育の新時代を、鶴鳴学園は今日も切り拓いている。"
         ],
-        image: "img/njac/s4.png"
+        image: "img/njac/s4.jpg"
       }
     ],
     profile: {
@@ -1315,7 +1315,7 @@ window.FF_COMPANIES = [
     company: "森果樹園",
     url: "https://www.mori-kajuen.com/",
     tagline: "汗を流して自然を感じてほしい",
-    hero: "img/morikajuen/hero.png",
+    hero: "img/morikajuen/hero.jpg",
     card: "img/morikajuen/card.png",
     logo: "img/morikajuen/logo.png",
     ogImage: "img/morikajuen/card.png",
@@ -1325,7 +1325,7 @@ window.FF_COMPANIES = [
         body: [
           "百年を越えて息づく果樹園。その草木一つひとつに、長崎の風土と家族の想いが宿る。枇杷（ビワ）をはじめ桃、柑橘類の栽培から販売、さらには加工品による一年を通した商品供給まで、自らの手で一気通貫して行うのが、森果樹園だ。ここには小規模ながらも確かな誇りがある。代表を務める森純幸は、祖父の跡を継ぐ4代目にして、自らも青果市場を経て就農を決意した物語を胸に抱きつつ、今日も畑と向き合う。"
         ],
-        image: "img/morikajuen/s1.png"
+        image: "img/morikajuen/s1.jpg"
       },
       {
         heading: "果実への情熱を灯し続ける一族",
@@ -1334,7 +1334,7 @@ window.FF_COMPANIES = [
           "幼き日から刻まれた「いつかは継ぐ」という決意。高校卒業後、祖父の勧めで農業経営大学校に入学、その後地元長崎の青果市場にて5年間従事した経験は、他の生産者の果実を観察し、自身の理想を育む時間だった。市場に並ぶ一粒一粒から、もっと高く評価される枇杷を自分の手でつくりたいという炎が燃え上がる。その炎を胸に、就職先を離れ、家業に立ち返った。1998年のことであった。",
           "しかし自然は厳しい。2016年に記録的な寒波が到来し枇杷が凍死、収穫量は半減した。途方に暮れる中で導入を決断したのが、簡易ハウスによる防寒対策だった。この経験は「自然との共生とは備えを怠らぬこと」を教え、異常気象が常態化する現代にあっても森果樹園の根幹を支えている。"
         ],
-        image: "img/morikajuen/s2.png"
+        image: "img/morikajuen/s2.jpg"
       },
       {
         heading: "出荷するのは“本当においしいもの”だけ",
@@ -1343,7 +1343,7 @@ window.FF_COMPANIES = [
           "そして規格外品を破棄せずに加工品に回すという発想は、地域資源の有効活用と通年供給を実現する智恵の結晶だ。ジュースやジャムに姿を変えた果実は、新たな価値をまとって消費者のもとへ届けられる。これは循環型農業への小さな一歩でもある。",
           "農業には、どうしても人間がコントロールできない厳しい一面がある。だが、木々の間を吹き抜ける風の匂いを知り、実を結ぶ瞬間の手応えを味わえば、苦難は歓喜に変わる。森果樹園が示すのは、伝統と革新が織り成す一本の道である。森果樹園が光らせている枇杷の黄金色は、先人と未来をつなぐリレーのバトンの色と言えよう。"
         ],
-        image: "img/morikajuen/s3.png"
+        image: "img/morikajuen/s3.jpg"
       },
       {
         heading: "自然を肌で感じてほしい",
@@ -1353,7 +1353,7 @@ window.FF_COMPANIES = [
           "森は語る。「まずは一度、畑を覗きに来てほしい。自然の中で汗を流して、自分の手をかけた果実が実を結ぶ喜びを、ぜひ肌で感じてほしいです。季節の移ろいを肌で感じながら働く充実感は、机の上では感じることはできませんから」農業は過酷さと同時に、自らの手応えを確かに返してくれる仕事である。",
           "長崎の風土と家族の絆が育んだ百年の歴史を背負い、森は今日も果樹園の土を踏みしめる。未来への一歩を、確かな足取りで刻みながら。"
         ],
-        image: "img/morikajuen/s4.png"
+        image: "img/morikajuen/s4.jpg"
       }
     ],
     profile: {
