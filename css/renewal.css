@@ -1876,3 +1876,8 @@ img {
 .header.is-scrolled::before {
   opacity: 1;
 }
+
+/* ロゴ未入稿の社（is-nologo）は反転演出をせず、写真を常時表示 */
+.article-wrap__body__card.is-nologo .card-img-front {
+  opacity: 1;
+}

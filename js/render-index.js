@@ -30,13 +30,18 @@
   }
 
   function realCard(c) {
+    // ロゴ未入稿の社は裏面を出さず、写真を出しっぱなしにする（is-nologo）
+    var back = c.logo
+      ? '<div class="card-img-backs">' +
+          '<img src="' + esc(c.logo) + '" alt="" class="card-img-back" loading="lazy" decoding="async">' +
+        "</div>"
+      : "";
     return (
-      '<a href="company.html?id=' + esc(c.id) + '" class="article-wrap__body__card">' +
+      '<a href="company.html?id=' + esc(c.id) + '" class="article-wrap__body__card' +
+        (c.logo ? "" : " is-nologo") + '">' +
         '<div class="article-wrap__body__card__img">' +
           '<img src="' + esc(c.card) + '" alt="' + esc(c.company) + '" class="card-img-front" loading="lazy" decoding="async">' +
-          '<div class="card-img-backs">' +
-            '<img src="' + esc(c.logo) + '" alt="" class="card-img-back" loading="lazy" decoding="async">' +
-          "</div>" +
+          back +
         "</div>" +
         '<div class="article-wrap__body__card__under">' +
           '<p class="article-wrap__body__card__kinds">' + esc(c.category || "") + "</p>" +
