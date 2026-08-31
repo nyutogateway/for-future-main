@@ -200,13 +200,18 @@
     var list = document.getElementById("h-nav__list");
     if (!list) return;
 
-    var items = [
-      { href: "index.html", en: "TOP", jp: "トップ" },
-      { href: "index.html#about", en: "ABOUT", jp: "このサイトについて" },
-      { href: "index.html#article", en: "STORIES", jp: "30の物語" },
-      { href: "policy.html", en: "PRIVACY POLICY", jp: "プライバシーポリシー" },
-      { href: "contact.html", en: "CONTACT", jp: "お問い合わせ" }
-    ];
+    // WordPress では functions.php が FF_NAV でWPのURLを渡してくる。
+    // 静的サイトには FF_NAV が無いので、下の既定値を使う。
+    var items =
+      window.FF_NAV && window.FF_NAV.items && window.FF_NAV.items.length
+        ? window.FF_NAV.items
+        : [
+            { href: "index.html", en: "TOP", jp: "トップ" },
+            { href: "index.html#about", en: "ABOUT", jp: "このサイトについて" },
+            { href: "index.html#article", en: "STORIES", jp: "30の物語" },
+            { href: "policy.html", en: "PRIVACY POLICY", jp: "プライバシーポリシー" },
+            { href: "contact.html", en: "CONTACT", jp: "お問い合わせ" }
+          ];
 
     var ul = "<ul>";
     items.forEach(function (it, i) {
