@@ -127,3 +127,42 @@ button.contact-btn {
 } 
 }
 
+
+/* =========================================================
+   Contact Form 7 対応
+   CF7 は各項目を <span class="wpcf7-form-control-wrap"> で包み、
+   さらに <p> を自動挿入する。そのままだと横並びと幅指定が崩れるため補正する。
+   ========================================================= */
+.contact-wrap .wpcf7 form > p,
+.contact-wrap .wpcf7 p {
+  margin: 0;
+}
+.contact-wrap .wpcf7-form-control-wrap {
+  display: block;
+  width: 70%;
+}
+.contact-wrap__con .wpcf7-form-control-wrap .contact-wrap__con__input,
+.contact-wrap__con .wpcf7-form-control-wrap .contact-wrap__con__area {
+  width: 100%;
+}
+/* 必須マークはラベル側で出しているので、CF7の赤いアスタリスクは隠す */
+.contact-wrap .wpcf7-not-valid-tip {
+  font-size: 0.85rem;
+  margin-top: 6px;
+}
+.contact-wrap .wpcf7-response-output {
+  max-width: 70%;
+  margin: 24px auto 0;
+  font-size: 0.9rem;
+}
+.contact-wrap .wpcf7-spinner {
+  display: block;
+  margin: 12px auto 0;
+}
+@media screen and (max-width: 768px) {
+  .contact-wrap .wpcf7-form-control-wrap,
+  .contact-wrap .wpcf7-response-output {
+    width: 100%;
+    max-width: 100%;
+  }
+}
