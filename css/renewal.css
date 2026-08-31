@@ -1881,3 +1881,30 @@ img {
 .article-wrap__body__card.is-nologo .card-img-front {
   opacity: 1;
 }
+
+/* =========================================================
+   ?static=1 でアニメーションを停止（スクリーンショット撮影用）
+   reveal.js が html に .ff-static を付ける。
+   付いていないときは何も起きない。
+   ========================================================= */
+html.ff-static *,
+html.ff-static *::before,
+html.ff-static *::after {
+  animation: none !important;
+  transition: none !important;
+}
+html.ff-static {
+  scroll-behavior: auto !important;
+}
+html.ff-static .will-reveal,
+html.ff-static .will-reveal.reveal-scale,
+html.ff-static .mag-cover__text > *,
+html.ff-static .mag-cover__photo img {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+html.ff-static .page-transition,
+html.ff-static .scroll-progress {
+  display: none !important;
+}

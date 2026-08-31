@@ -7,9 +7,16 @@
 (function () {
   "use strict";
 
-  const prefersReduced = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
+  /* URLに ?static=1（または #static）が付いていたらアニメーションを止める。
+     スクリーンショット撮影用。付けなければ通常どおり動く。 */
+  const staticMode = /(^|[?&#])static(=1)?(&|#|$)/.test(
+    window.location.search + window.location.hash
+  );
+  if (staticMode) document.documentElement.classList.add("ff-static");
+
+  const prefersReduced =
+    staticMode ||
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ---------------------------------------------------------
      0. ページ遷移オーバーレイ
