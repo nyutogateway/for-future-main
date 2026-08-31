@@ -70,8 +70,14 @@
           : "") +
       "</div>" +
       '<div class="mag-cover__photo">' +
-        '<img src="' + esc(c.hero) + '" alt="' +
-          esc(c.nameJa + " ｜ " + c.company + " " + c.title) + '" />' +
+        // heroSp があれば 900px 以下でそちらに差し替える（PC＝横長 / SP＝縦長）
+        "<picture>" +
+          (c.heroSp
+            ? '<source media="(max-width: 900px)" srcset="' + esc(c.heroSp) + '">'
+            : "") +
+          '<img src="' + esc(c.hero) + '" alt="' +
+            esc(c.nameJa + " ｜ " + c.company + " " + c.title) + '" />' +
+        "</picture>" +
       "</div>" +
     "</section>";
 

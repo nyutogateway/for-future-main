@@ -1556,6 +1556,7 @@ window.FF_COMPANIES = [
     url: "https://www.ainetmakoto.jp/",
     tagline: "技術で人の可能性を広げる",
     hero: "img/ainetmakoto/hero.jpg",
+    heroSp: "img/ainetmakoto/hero-sp.jpg",   // 900px以下で使う縦長版（任意）
     card: "img/ainetmakoto/card.jpg",
     logo: "img/ainetmakoto/logo.png",
     ogImage: "img/ainetmakoto/card.jpg",
