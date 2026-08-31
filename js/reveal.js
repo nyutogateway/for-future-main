@@ -7,8 +7,8 @@
 (function () {
   "use strict";
 
-  /* ▼ 一時的にアニメーションを全停止中（戻すときは false にするだけ） ▼ */
-  const FORCE_STATIC = true;
+  /* アニメーションを一時的に全停止したいときは true にする */
+  const FORCE_STATIC = false;
 
   /* URLに ?static=1（または #static）が付いていたらアニメーションを止める。
      スクリーンショット撮影用。付けなければ通常どおり動く。 */
