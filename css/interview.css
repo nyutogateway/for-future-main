@@ -8,7 +8,7 @@
    ========================================================= */
 
 .mag {
-  --measure: 760px;              /* 本文の読みやすい行長 */
+  --measure: 1080px;             /* 本文の読みやすい行長 */
   --serif: "Noto Serif JP", serif;
   color: var(--ink);
   background: #fff;
