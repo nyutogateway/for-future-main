@@ -137,9 +137,16 @@ button.contact-btn {
 .contact-wrap .wpcf7 p {
   margin: 0;
 }
+/* 入力欄はラベルの残り幅をすべて使う。
+   ラベル40%＋入力70%＝110%になり、flexで両方が縮んで細くなるのを防ぐ。 */
+.contact-wrap__con .contact-wrap__con__ttl {
+  flex: 0 0 40%;
+}
 .contact-wrap .wpcf7-form-control-wrap {
   display: block;
-  width: 70%;
+  flex: 1 1 auto;
+  width: auto;
+  min-width: 0;
 }
 .contact-wrap__con .wpcf7-form-control-wrap .contact-wrap__con__input,
 .contact-wrap__con .wpcf7-form-control-wrap .contact-wrap__con__area {
