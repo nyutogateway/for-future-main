@@ -7,11 +7,16 @@
 (function () {
   "use strict";
 
+  /* ▼ 一時的にアニメーションを全停止中（戻すときは false にするだけ） ▼ */
+  const FORCE_STATIC = true;
+
   /* URLに ?static=1（または #static）が付いていたらアニメーションを止める。
      スクリーンショット撮影用。付けなければ通常どおり動く。 */
-  const staticMode = /(^|[?&#])static(=1)?(&|#|$)/.test(
-    window.location.search + window.location.hash
-  );
+  const staticMode =
+    FORCE_STATIC ||
+    /(^|[?&#])static(=1)?(&|#|$)/.test(
+      window.location.search + window.location.hash
+    );
   if (staticMode) document.documentElement.classList.add("ff-static");
 
   const prefersReduced =
